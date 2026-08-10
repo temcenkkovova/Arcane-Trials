@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfig
   baseSpeed: 2
-  baseSpeedRotation: 1
+  baseSpeedRotation: 4
   baseHealth: 50
   baseDamage: 15
+  dashCooldawn: 0

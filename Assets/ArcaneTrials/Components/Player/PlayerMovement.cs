@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     if (characterController == null) return;
     if (moveDir.sqrMagnitude > 1f)
       moveDir.Normalize();
-
-    Debug.Log(moveDir);
     characterController.Move(moveDir * playerStats.MoveSpeed * Time.deltaTime);
   }
 

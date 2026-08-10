@@ -5,6 +5,7 @@ public class PlayerComponent : MonoBehaviour
   public PlayerConfig playerConfig;
   private PlayerMovement playerMovement;
   private PlayerStats playerStats;
+  private PlayerRotation playerRotation;
 
   void Awake()
   {
@@ -18,6 +19,7 @@ public class PlayerComponent : MonoBehaviour
 
     if (playerMovement == null) return;
     playerMovement.Init(playerStats);
+    playerRotation.Init(playerStats);
   }
 
 
@@ -25,6 +27,7 @@ public class PlayerComponent : MonoBehaviour
   {
 
     playerMovement = GetComponent<PlayerMovement>();
+    playerRotation = GetComponent<PlayerRotation>();
   }
 
 }
