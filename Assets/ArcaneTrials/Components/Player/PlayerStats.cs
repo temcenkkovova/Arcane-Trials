@@ -5,6 +5,7 @@ public class PlayerStats
   public float RotationSpeed { get; private set; }
   public float Damage { get; private set; }
   public float DashCooldown { get; private set; }
+  public float BaseSprintSpeed { get; private set; }
 
   public PlayerStats(PlayerConfig config)
   {
@@ -13,5 +14,6 @@ public class PlayerStats
     RotationSpeed = config.baseSpeedRotation;
     Damage = config.baseDamage;
     DashCooldown = config.dashCooldawn;
+    BaseSprintSpeed = config.baseSprintSpeed;
   }
 }

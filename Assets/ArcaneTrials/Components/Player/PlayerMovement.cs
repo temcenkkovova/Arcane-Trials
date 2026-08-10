@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
   private PlayerStats playerStats;
   private CharacterController characterController;
-
+  public float CurrentSpeedPercent { get; private set; }
+  public bool isSprinting { get; private set; }
+  public event Action<bool> OnSprintChanged;
   public void Init(PlayerStats playerStats)
   {
     this.playerStats = playerStats;
@@ -13,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
   void Start()
   {
     characterController = GetComponent<CharacterController>();
+    isSprinting = false;
   }
 
   public void Move(Vector2 input)
@@ -22,7 +26,16 @@ public class PlayerMovement : MonoBehaviour
     if (characterController == null) return;
     if (moveDir.sqrMagnitude > 1f)
       moveDir.Normalize();
-    characterController.Move(moveDir * playerStats.MoveSpeed * Time.deltaTime);
+    float currentSpeed = isSprinting ? playerStats.BaseSprintSpeed : playerStats.MoveSpeed;
+    characterController.Move(moveDir * currentSpeed * Time.deltaTime);
+    CurrentSpeedPercent = moveDir.sqrMagnitude > 0.01f ? (isSprinting ? 1f : 0.5f) : 0f;
   }
+  public void ChangeSprintState(bool newSprintState)
+  {
 
+    if (isSprinting == newSprintState) return;
+
+    isSprinting = newSprintState;
+    OnSprintChanged?.Invoke(isSprinting);
+  }
 }

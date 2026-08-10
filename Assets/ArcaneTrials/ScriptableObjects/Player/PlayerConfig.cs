@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerConfig : ScriptableObject
 {
   public float baseSpeed;
+  public float baseSprintSpeed;
   public float baseSpeedRotation;
   public float baseHealth;
   public float baseDamage;

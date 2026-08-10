@@ -561,6 +561,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469418329}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1253590666 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8834390190696397180, guid: de2244d1c85677b40bf681b62db8c905, type: 3}
+  m_PrefabInstance: {fileID: 2107441269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1253590667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3486931466769733978, guid: de2244d1c85677b40bf681b62db8c905, type: 3}
@@ -580,6 +585,7 @@ GameObject:
   - component: {fileID: 1544108401}
   - component: {fileID: 1544108402}
   - component: {fileID: 1544108403}
+  - component: {fileID: 1544108404}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -677,6 +683,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aefefbe6190aa248b41f16a30bcc3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRotation
+--- !u!114 &1544108404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544108397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57d51551764b5e4da91644d82469d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationsController
+  animator: {fileID: 1253590666}
 --- !u!1001 &2107441269
 PrefabInstance:
   m_ObjectHideFlags: 0
