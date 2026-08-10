@@ -7,4 +7,5 @@ public class PlayerConfig : ScriptableObject
   public float baseSpeedRotation;
   public float baseHealth;
   public float baseDamage;
+  public float dashCooldawn;
 }
