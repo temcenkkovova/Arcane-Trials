@@ -20,7 +20,7 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "235c996e-7760-4c54-940d-7ae4b261abd8",
+                    "id": "07560ee9-6062-48c5-a24a-1cdce4e44a77",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -31,7 +31,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "b02d7b3e-69bd-41e7-a4be-4dd61c98bb07",
+                    "id": "6c18f220-acf6-435d-ab1c-601535352302",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "28f2a61f-9c04-4542-92d1-38767daad660",
+                    "id": "e111ba69-ed1a-4e5d-afbc-5ba5b56cf4bf",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -53,7 +53,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "ee1cb71f-d3d5-410c-9f07-e2da86201986",
+                    "id": "5b028796-69a0-4f65-91fc-ef7f011defb5",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -64,7 +64,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "3de38918-555e-4a6b-bc61-566fb6890ba4",
+                    "id": "b44ad4a6-d4d9-4bef-8b46-4f57c9c0d21b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
