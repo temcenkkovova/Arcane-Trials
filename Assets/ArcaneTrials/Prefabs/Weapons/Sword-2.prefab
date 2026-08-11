@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2918458816845116852}
   - component: {fileID: 3384578426298779407}
   - component: {fileID: 6251150999798404751}
+  - component: {fileID: 4185514417891456793}
+  - component: {fileID: 7490910490056502509}
   m_Layer: 0
   m_Name: Sword-2
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4038452383287798929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.64261824, y: -0.3287262, z: -0.23955086, w: 0.6493045}
+  m_LocalRotation: {x: 0.64261645, y: -0.32872477, z: -0.23955159, w: 0.6493067}
   m_LocalPosition: {x: 0.044999365, y: -0.019994255, z: -0.028005723}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -90,3 +92,38 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4185514417891456793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038452383287798929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576ed0ead307ea54686312eda8bb9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordHitBox
+--- !u!136 &7490910490056502509
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038452383287798929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19950823
+  m_Height: 1.6643761
+  m_Direction: 1
+  m_Center: {x: 0.00000010235576, y: 0.57241505, z: 0.0000002471408}
