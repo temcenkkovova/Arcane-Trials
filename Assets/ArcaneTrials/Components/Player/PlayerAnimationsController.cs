@@ -7,6 +7,7 @@ public class PlayerAnimationsController : MonoBehaviour
 
   private PlayerMovement movement;
   public event Action OnFinishDodge;
+  public event Action OnFinishAttack;
 
   void Awake()
   {
@@ -40,7 +41,17 @@ public class PlayerAnimationsController : MonoBehaviour
   }
   public void HandleFinishDodge()
   {
-    Debug.Log("He");
+
     OnFinishDodge?.Invoke();
+  }
+  public void PlayAttackAnimation()
+  {
+
+    animator.SetTrigger("Attack");
+  }
+  public void HandleFinishAttack()
+  {
+
+    OnFinishAttack?.Invoke();
   }
 }

@@ -11,6 +11,8 @@ public class PlayerComponent : MonoBehaviour
   public LocomotionState Locomotion => locomotionState;
   private DodgeState dodgeState;
   public DodgeState Dodge => dodgeState;
+  private CombatState combatState;
+  public CombatState Combat => combatState;
   private PlayerInputController playerInputController;
   private PlayerDodge playerDodge;
   private PlayerAnimationsController playerAnimationsController;
@@ -26,6 +28,7 @@ public class PlayerComponent : MonoBehaviour
     playerStats = new PlayerStats(playerConfig);
     locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation, fsmController, this);
     dodgeState = new DodgeState(playerMovement, playerDodge, playerAnimationsController, fsmController, this);
+    combatState = new CombatState(playerAnimationsController, fsmController, this, playerInputController);
     fsmController.InitState(Locomotion);
     playerMovement.Init(playerStats);
     playerRotation.Init(playerStats);

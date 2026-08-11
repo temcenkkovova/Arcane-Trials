@@ -11,6 +11,7 @@ public class PlayerInputController : MonoBehaviour
   public Vector2 MoveInput { get; private set; }
   public Vector2 MousePosition { get; private set; }
   public event Action OnRoll;
+  public event Action OnAttack;
 
   private void Awake()
   {
@@ -41,12 +42,18 @@ public class PlayerInputController : MonoBehaviour
     OnRoll?.Invoke();
 
   }
+  public void OnAttackStarted(InputAction.CallbackContext context)
+  {
+    OnAttack?.Invoke();
+
+  }
   private void OnEnable()
   {
     inputActions.Player.Enable();
     inputActions.Player.Sprint.started += OnSprintStarted;
     inputActions.Player.Sprint.canceled += OnSprintCanceled;
     inputActions.Player.Roll.performed += OnRollStarted;
+    inputActions.Player.Attack.performed += OnAttackStarted;
   }
 
   private void OnDisable()
@@ -55,6 +62,7 @@ public class PlayerInputController : MonoBehaviour
     inputActions.Player.Sprint.started -= OnSprintStarted;
     inputActions.Player.Sprint.canceled -= OnSprintCanceled;
     inputActions.Player.Roll.performed -= OnRollStarted;
+    inputActions.Player.Attack.performed -= OnAttackStarted;
     inputActions.Player.Disable();
   }
 }
