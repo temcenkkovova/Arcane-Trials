@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class PlayerRotation : MonoBehaviour
 {
@@ -10,13 +10,6 @@ public class PlayerRotation : MonoBehaviour
     this.playerStats = playerStats;
   }
 
-
-  void Update()
-  {
-    Vector2 mousePosition = Mouse.current.position.ReadValue();
-    RotateByMouse(mousePosition);
-
-  }
   public void RotateByMouse(Vector2 input)
   {
     Vector3 mouseDir = new Vector3();

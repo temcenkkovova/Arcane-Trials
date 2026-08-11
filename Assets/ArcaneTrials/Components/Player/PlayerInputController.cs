@@ -7,7 +7,9 @@ public class PlayerInputController : MonoBehaviour
 {
   public GameInputActions inputActions;
   private PlayerMovement playerMovement;
-  public event Action OnMoveChanged;
+
+  public Vector2 MoveInput { get; private set; }
+  public Vector2 MousePosition { get; private set; }
 
 
   private void Awake()
@@ -18,15 +20,9 @@ public class PlayerInputController : MonoBehaviour
 
   void Update()
   {
-    Vector2 inputVector = inputActions.Player.Move.ReadValue<Vector2>();
     if (playerMovement == null || inputActions == null) return;
-
-    playerMovement.Move(inputVector);
-
-    OnMoveChanged?.Invoke();
-
-
-
+    MoveInput = inputActions.Player.Move.ReadValue<Vector2>();
+    MousePosition = Mouse.current.position.ReadValue();
   }
 
 
@@ -35,10 +31,15 @@ public class PlayerInputController : MonoBehaviour
     // if (!GameStateController.Instance.IsGameplayState()) return;
     playerMovement.ChangeSprintState(true);
   }
+
   public void OnSprintCanceled(InputAction.CallbackContext context)
   {
-
     playerMovement.ChangeSprintState(false);
+  }
+  public void OnRollStarted(InputAction.CallbackContext context)
+  {
+    // if (!GameStateController.Instance.IsGameplayState()) return;
+    playerMovement.ChangeSprintState(true);
   }
   private void OnEnable()
   {
