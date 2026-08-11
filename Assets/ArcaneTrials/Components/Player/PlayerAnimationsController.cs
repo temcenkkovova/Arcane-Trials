@@ -3,30 +3,33 @@ using UnityEngine;
 public class PlayerAnimationsController : MonoBehaviour
 {
   public Animator animator;
-  private PlayerInputController inputController;
+
   private PlayerMovement movement;
 
   void Awake()
   {
-    inputController = GetComponent<PlayerInputController>();
+
     movement = GetComponent<PlayerMovement>();
 
   }
 
   void Start()
   {
-    if (inputController == null) return;
-    inputController.OnMoveChanged += HandleMoveChanged;
+    if (movement == null) return;
+    movement.OnMoveDirectionChanged += HandleMoveChanged;
   }
 
   private void OnDisable()
   {
-    if (inputController == null) return;
-    inputController.OnMoveChanged -= HandleMoveChanged;
+    if (movement == null) return;
+    movement.OnMoveDirectionChanged -= HandleMoveChanged;
   }
 
-  public void HandleMoveChanged(Vector2 input)
+  public void HandleMoveChanged(Vector3 localDirection)
   {
-    animator.SetFloat("Speed", movement.CurrentSpeedPercent, 0.15f, Time.deltaTime); // For make smooth threshold .
+
+    animator.SetFloat("MoveX", localDirection.x, 0.1f, Time.deltaTime); // For make smooth threshold .
+    animator.SetFloat("MoveY", localDirection.z, 0.1f, Time.deltaTime);
+
   }
 }

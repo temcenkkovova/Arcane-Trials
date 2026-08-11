@@ -7,7 +7,7 @@ public class PlayerInputController : MonoBehaviour
 {
   public GameInputActions inputActions;
   private PlayerMovement playerMovement;
-  public event Action<Vector2> OnMoveChanged;
+  public event Action OnMoveChanged;
 
 
   private void Awake()
@@ -23,7 +23,7 @@ public class PlayerInputController : MonoBehaviour
 
     playerMovement.Move(inputVector);
 
-    OnMoveChanged?.Invoke(inputVector);
+    OnMoveChanged?.Invoke();
 
 
 
