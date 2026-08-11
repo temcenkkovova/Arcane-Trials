@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimationsController : MonoBehaviour
@@ -5,6 +6,7 @@ public class PlayerAnimationsController : MonoBehaviour
   public Animator animator;
 
   private PlayerMovement movement;
+  public event Action OnFinishDodge;
 
   void Awake()
   {
@@ -31,5 +33,14 @@ public class PlayerAnimationsController : MonoBehaviour
     animator.SetFloat("MoveX", localDirection.x, 0.1f, Time.deltaTime); // For make smooth threshold .
     animator.SetFloat("MoveY", localDirection.z, 0.1f, Time.deltaTime);
 
+  }
+  public void HandleStartDodge()
+  {
+    animator.SetTrigger("Roll");
+  }
+  public void HandleFinishDodge()
+  {
+    Debug.Log("He");
+    OnFinishDodge?.Invoke();
   }
 }

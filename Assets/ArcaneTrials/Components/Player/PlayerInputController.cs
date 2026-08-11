@@ -10,7 +10,7 @@ public class PlayerInputController : MonoBehaviour
 
   public Vector2 MoveInput { get; private set; }
   public Vector2 MousePosition { get; private set; }
-
+  public event Action OnRoll;
 
   private void Awake()
   {
@@ -38,20 +38,23 @@ public class PlayerInputController : MonoBehaviour
   }
   public void OnRollStarted(InputAction.CallbackContext context)
   {
-    // if (!GameStateController.Instance.IsGameplayState()) return;
-    playerMovement.ChangeSprintState(true);
+    OnRoll?.Invoke();
+
   }
   private void OnEnable()
   {
     inputActions.Player.Enable();
     inputActions.Player.Sprint.started += OnSprintStarted;
     inputActions.Player.Sprint.canceled += OnSprintCanceled;
+    inputActions.Player.Roll.performed += OnRollStarted;
   }
 
   private void OnDisable()
   {
-    inputActions.Player.Disable();
+
     inputActions.Player.Sprint.started -= OnSprintStarted;
     inputActions.Player.Sprint.canceled -= OnSprintCanceled;
+    inputActions.Player.Roll.performed -= OnRollStarted;
+    inputActions.Player.Disable();
   }
 }

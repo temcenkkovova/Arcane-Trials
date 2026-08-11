@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
   public bool isSprinting { get; private set; }
   public event Action<bool> OnSprintChanged;
   public Vector3 CurrentInverseTransformDirection { get; private set; }
+  public Vector3 CurrentMoveDirection { get; private set; }
   public event Action<Vector3> OnMoveDirectionChanged;
   public void Init(PlayerStats playerStats)
   {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     if (moveDir.sqrMagnitude > 1f)
       moveDir.Normalize();
 
+    CurrentMoveDirection = moveDir;
     CurrentInverseTransformDirection = transform.InverseTransformDirection(moveDir);
     OnMoveDirectionChanged?.Invoke(CurrentInverseTransformDirection);
     float currentSpeed = isSprinting ? playerStats.BaseSprintSpeed : playerStats.MoveSpeed;

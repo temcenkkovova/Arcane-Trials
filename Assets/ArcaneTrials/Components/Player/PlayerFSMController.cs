@@ -17,6 +17,7 @@ public class PlayerFSMController : MonoBehaviour
 
   public void SwitchState(IPlayerState newState)
   {
+
     if (currentState == newState) return;
     currentState?.Exit();
     currentState = newState;

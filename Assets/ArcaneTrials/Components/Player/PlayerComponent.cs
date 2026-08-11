@@ -9,7 +9,11 @@ public class PlayerComponent : MonoBehaviour
   private PlayerFSMController fsmController;
   private LocomotionState locomotionState;
   public LocomotionState Locomotion => locomotionState;
+  private DodgeState dodgeState;
+  public DodgeState Dodge => dodgeState;
   private PlayerInputController playerInputController;
+  private PlayerDodge playerDodge;
+  private PlayerAnimationsController playerAnimationsController;
 
   void Awake()
   {
@@ -20,7 +24,8 @@ public class PlayerComponent : MonoBehaviour
   {
     if (playerConfig == null) return;
     playerStats = new PlayerStats(playerConfig);
-    locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation);
+    locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation, fsmController, this);
+    dodgeState = new DodgeState(playerMovement, playerDodge, playerAnimationsController, fsmController, this);
     fsmController.InitState(Locomotion);
     playerMovement.Init(playerStats);
     playerRotation.Init(playerStats);
@@ -34,6 +39,8 @@ public class PlayerComponent : MonoBehaviour
     playerRotation = GetComponent<PlayerRotation>();
     fsmController = GetComponent<PlayerFSMController>();
     playerInputController = GetComponent<PlayerInputController>();
+    playerDodge = GetComponent<PlayerDodge>();
+    playerAnimationsController = GetComponent<PlayerAnimationsController>();
   }
 
 }

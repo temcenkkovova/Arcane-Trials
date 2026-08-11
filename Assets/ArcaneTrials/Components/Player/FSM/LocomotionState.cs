@@ -6,16 +6,22 @@ public class LocomotionState : IPlayerState
   private PlayerMovement movement;
   private PlayerRotation playerRotation;
   private PlayerInputController playerInput;
+  private PlayerFSMController playerFSM;
 
-  public LocomotionState(PlayerMovement movement, PlayerInputController playerInput, PlayerRotation playerRotation)
+  private PlayerComponent player;
+
+  public LocomotionState(PlayerMovement movement, PlayerInputController playerInput, PlayerRotation playerRotation, PlayerFSMController playerFSM, PlayerComponent player)
   {
     this.movement = movement;
     this.playerInput = playerInput;
     this.playerRotation = playerRotation;
+    this.playerFSM = playerFSM;
+    this.player = player;
+
   }
   public void Enter()
   {
-
+    playerInput.OnRoll += SwitchOnDodgeState;
   }
   public void Update()
   {
@@ -24,7 +30,14 @@ public class LocomotionState : IPlayerState
   }
   public void Exit()
   {
-
+    playerInput.OnRoll -= SwitchOnDodgeState;
   }
 
+
+  public void SwitchOnDodgeState()
+  {
+
+    playerFSM.SwitchState(player.Dodge);
+
+  }
 }
