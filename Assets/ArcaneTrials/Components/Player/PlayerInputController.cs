@@ -20,8 +20,9 @@ public class PlayerInputController : MonoBehaviour
   {
     Vector2 inputVector = inputActions.Player.Move.ReadValue<Vector2>();
     if (playerMovement == null || inputActions == null) return;
-    if (inputVector.sqrMagnitude > 0.1f)
-      playerMovement.Move(inputVector);
+
+    playerMovement.Move(inputVector);
+
     OnMoveChanged?.Invoke(inputVector);
 
 

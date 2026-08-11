@@ -27,6 +27,6 @@ public class PlayerAnimationsController : MonoBehaviour
 
   public void HandleMoveChanged(Vector2 input)
   {
-    animator.SetFloat("Speed", movement.CurrentSpeedPercent);
+    animator.SetFloat("Speed", movement.CurrentSpeedPercent, 0.15f, Time.deltaTime); // For make smooth threshold .
   }
 }

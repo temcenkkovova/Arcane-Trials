@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     float currentSpeed = isSprinting ? playerStats.BaseSprintSpeed : playerStats.MoveSpeed;
     characterController.Move(moveDir * currentSpeed * Time.deltaTime);
     CurrentSpeedPercent = moveDir.sqrMagnitude > 0.01f ? (isSprinting ? 1f : 0.5f) : 0f;
+    Debug.Log(isSprinting);
   }
   public void ChangeSprintState(bool newSprintState)
   {
