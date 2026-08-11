@@ -3,8 +3,10 @@ using UnityEngine;
 public class AttackConfig : ScriptableObject
 {
   public float damage;
-  public float cooldown;
-  public float range;
+  public float speed;
+
+  public float critChance;
+  public float critMultiplier;
 
 
 }

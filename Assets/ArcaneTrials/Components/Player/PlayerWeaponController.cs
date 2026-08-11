@@ -2,29 +2,22 @@ using UnityEngine;
 
 public class PlayerWeaponController : MonoBehaviour
 {
-  public WeaponItem startWeapon;
-  public Transform weaponPosition;
-  public WeaponItem CurrentWeapon { get; private set; }
+  public WeaponConfig weaponConfig;
+  public Transform weaponGrid;
+
+  public WeaponStats WeaponStats { get; private set; }
 
   void Start()
   {
-    EquipWeapon(startWeapon);
+    WeaponStats = new WeaponStats(weaponConfig);
   }
 
 
-  public void EquipWeapon(WeaponItem weaponItem)
+  private void ChangeWeaponVisual()
   {
-    if (IsEquipped(weaponItem)) return;
-
-    CurrentWeapon = weaponItem;
-    foreach (Transform child in weaponPosition)
+    foreach (Transform child in weaponGrid)
       Destroy(child.gameObject);
 
-    GameObject weapon = Instantiate(startWeapon.weaponConfig.weaponPrefab, weaponPosition);
-  }
-
-  public bool IsEquipped(WeaponItem weapon)
-  {
-    return CurrentWeapon == weapon;
+    //GameObject weapon = Instantiate(weaponConfig.nextPrefab, weaponPosition);
   }
 }

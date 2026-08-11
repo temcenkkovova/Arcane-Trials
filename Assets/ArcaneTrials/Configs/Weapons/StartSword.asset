@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b21082a6fe0b004d8558b009d3d9989, type: 3}
-  m_Name: Start
+  m_Name: StartSword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   damage: 20
-  cooldown: 1
-  range: 2
+  speed: 1
+  critChance: 0.05
+  critMultiplier: 2
   weaponPrefab: {fileID: 4038452383287798929, guid: f906758ade0c7cc4495db4665d4fe7c9, type: 3}
+  level: 1
