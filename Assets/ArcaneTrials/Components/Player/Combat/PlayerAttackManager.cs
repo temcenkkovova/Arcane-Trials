@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
-public class AttackManager : MonoBehaviour
+public class PlayerAttackManager : MonoBehaviour
 {
   public bool IsAttacking { get; private set; }
-  private Attack attack;
+  [NonSerialized] public Attack attack;
   private PlayerAnimationsController playerAnimationsController;
 
   void Awake()
@@ -20,14 +21,11 @@ public class AttackManager : MonoBehaviour
 
   public void ManageAttack()
   {
-    if (attack.CanAttack())
-    {
-      attack.AttackAction();
-    }
-    else
-    {
-      Debug.Log("You can`t attack now");
-    }
+
+    attack.AttackAction();
+    playerAnimationsController.PlayAttackAnimation();
+
+
   }
 
   void OnEnable()

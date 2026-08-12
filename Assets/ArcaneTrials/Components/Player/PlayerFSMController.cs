@@ -5,11 +5,13 @@ public class PlayerFSMController : MonoBehaviour
   private IPlayerState currentState;
   private PlayerInputController playerInputController;
   private PlayerComponent playerComponent;
+  private PlayerAttackManager playerAttackManager;
 
   void Awake()
   {
     playerInputController = GetComponent<PlayerInputController>();
     playerComponent = GetComponent<PlayerComponent>();
+    playerAttackManager = GetComponent<PlayerAttackManager>();
   }
   private void OnEnable()
   {
@@ -42,6 +44,15 @@ public class PlayerFSMController : MonoBehaviour
 
   private void HandleAttackAction()
   {
-    SwitchState(playerComponent.Combat);
+    if (playerAttackManager.attack.CanAttack())
+    {
+      SwitchState(playerComponent.Combat);
+    }
+    else
+    {
+      Debug.Log("You can`t attack now");
+      return;
+    }
+
   }
 }

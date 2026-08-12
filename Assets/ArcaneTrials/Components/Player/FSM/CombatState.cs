@@ -7,13 +7,15 @@ public class CombatState : IPlayerState
 
   private PlayerComponent player;
   private PlayerFSMController playerFSM;
+  private PlayerAttackManager attackManager;
 
-  public CombatState(PlayerAnimationsController playerAnimations, PlayerFSMController playerFSM, PlayerComponent player, PlayerInputController playerInput)
+  public CombatState(PlayerAnimationsController playerAnimations, PlayerFSMController playerFSM, PlayerComponent player, PlayerInputController playerInput, PlayerAttackManager attackManager)
   {
 
     this.playerAnimations = playerAnimations;
     this.player = player;
     this.playerFSM = playerFSM;
+    this.attackManager = attackManager;
   }
   public void Update()
   {
@@ -22,16 +24,16 @@ public class CombatState : IPlayerState
   public void Enter()
   {
     playerAnimations.OnFinishAttack += FinishAttack;
-    Attack();
+    TryAttack();
   }
   public void Exit()
   {
     playerAnimations.OnFinishAttack -= FinishAttack;
   }
 
-  private void Attack()
+  private void TryAttack()
   {
-    playerAnimations.PlayAttackAnimation();
+    attackManager.ManageAttack();
   }
   private void FinishAttack()
   {

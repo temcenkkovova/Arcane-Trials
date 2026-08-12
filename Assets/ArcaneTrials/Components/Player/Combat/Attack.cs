@@ -11,13 +11,13 @@ public class Attack : MonoBehaviour
     this.weaponStats = weaponStats;
     swordHitBox = hitBox;
   }
-  public virtual bool CanAttack()
+  public bool CanAttack()
   {
 
     return Time.time >= lastAttackTime + weaponStats.Speed;
   }
 
-  public virtual void AttackAction()
+  public void AttackAction()
   {
     ExecuteAttack();
     lastAttackTime = Time.time;
@@ -25,11 +25,13 @@ public class Attack : MonoBehaviour
 
   private void ExecuteAttack()
   {
+
     if (weaponStats == null)
     {
       Debug.Log("WeaponStats is messing");
       return;
     }
+
     swordHitBox.SetDamage(weaponStats.Damage);
   }
 

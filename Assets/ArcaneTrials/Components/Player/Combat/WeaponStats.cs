@@ -1,3 +1,7 @@
+
+
+using UnityEngine;
+
 public class WeaponStats
 {
   public float Level { get; private set; }
@@ -12,6 +16,7 @@ public class WeaponStats
     Speed = config.speed;
     CritChance = config.critChance;
     CritMultiplier = config.critMultiplier;
+
   }
 
   public void LevelUp()

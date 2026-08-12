@@ -16,6 +16,7 @@ public class PlayerComponent : MonoBehaviour
   private PlayerInputController playerInputController;
   private PlayerDodge playerDodge;
   private PlayerAnimationsController playerAnimationsController;
+  private PlayerAttackManager attackManager;
 
   void Awake()
   {
@@ -28,7 +29,7 @@ public class PlayerComponent : MonoBehaviour
     playerStats = new PlayerStats(playerConfig);
     locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation, fsmController, this);
     dodgeState = new DodgeState(playerMovement, playerDodge, playerAnimationsController, fsmController, this);
-    combatState = new CombatState(playerAnimationsController, fsmController, this, playerInputController);
+    combatState = new CombatState(playerAnimationsController, fsmController, this, playerInputController, attackManager);
     fsmController.InitState(Locomotion);
     playerMovement.Init(playerStats);
     playerRotation.Init(playerStats);
@@ -44,6 +45,7 @@ public class PlayerComponent : MonoBehaviour
     playerInputController = GetComponent<PlayerInputController>();
     playerDodge = GetComponent<PlayerDodge>();
     playerAnimationsController = GetComponent<PlayerAnimationsController>();
+    attackManager = GetComponent<PlayerAttackManager>();
   }
 
 }

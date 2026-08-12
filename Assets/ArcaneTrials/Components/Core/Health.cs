@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
-  // public float MaxHealth { get; private set; }
-  public float MaxHealth;
+  public float MaxHealth { get; private set; }
+
   public float CurrentHealth { get; private set; }
   public event Action<float> OnHealthChanged;
   private bool isDead;
