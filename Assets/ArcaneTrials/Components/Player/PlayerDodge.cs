@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerDodge : MonoBehaviour
 {
   private CharacterController characterController;
-  [SerializeField] private float dodgeSpeed = 5f;
+  [SerializeField] private float dodgeSpeed = 1f;
 
   void Awake()
   {

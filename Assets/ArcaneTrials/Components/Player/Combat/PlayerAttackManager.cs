@@ -6,11 +6,13 @@ public class PlayerAttackManager : MonoBehaviour
   public bool IsAttacking { get; private set; }
   [NonSerialized] public Attack attack;
   private PlayerAnimationsController playerAnimationsController;
+  private PlayerAudio playerAudio;
 
   void Awake()
   {
     attack = GetComponent<Attack>();
     playerAnimationsController = GetComponent<PlayerAnimationsController>();
+    playerAudio = GetComponent<PlayerAudio>();
   }
 
   void Start()
@@ -24,7 +26,7 @@ public class PlayerAttackManager : MonoBehaviour
 
     attack.AttackAction();
     playerAnimationsController.PlayAttackAnimation();
-
+    playerAudio.PlayShootAudio();
 
   }
 

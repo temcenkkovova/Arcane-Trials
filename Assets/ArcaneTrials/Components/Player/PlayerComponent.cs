@@ -18,6 +18,7 @@ public class PlayerComponent : MonoBehaviour
   private PlayerAnimationsController playerAnimationsController;
   private PlayerAttackManager attackManager;
 
+
   void Awake()
   {
     InitComponents();

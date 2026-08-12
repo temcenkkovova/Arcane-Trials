@@ -6,6 +6,7 @@ public class PlayerAnimationsController : MonoBehaviour
   public Animator animator;
 
   private PlayerMovement movement;
+  private AttackEffects attackEffects;
   public event Action OnFinishDodge;
   public event Action OnFinishAttack;
   public event Action OnStartAttack;
@@ -15,6 +16,7 @@ public class PlayerAnimationsController : MonoBehaviour
 
     movement = GetComponent<PlayerMovement>();
 
+    attackEffects = GetComponent<AttackEffects>();
   }
 
   void Start()
@@ -60,5 +62,9 @@ public class PlayerAnimationsController : MonoBehaviour
   {
 
     OnFinishAttack?.Invoke();
+  }
+  public void HandlePlaySlashAttack()
+  {
+    attackEffects.PlayAttackEffect();
   }
 }

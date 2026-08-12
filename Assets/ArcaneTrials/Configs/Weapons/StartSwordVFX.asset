@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266fdf15100edb04291eef5fce0d2e57, type: 3}
+  m_Name: StartSwordVFX
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponVFXConfig
+  shootClips:
+  - {fileID: 8300000, guid: 66dd442f6085cfa469b9482231ed6625, type: 3}
+  volume: 1
+  pitchMin: 0.95
+  pitchMax: 1.05
+  particle: {fileID: -5286429548437942121, guid: 41b5a26de6f48c546bc46f4d4657f402, type: 3}
