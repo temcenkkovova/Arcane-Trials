@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4b1cc05b38c1d4db40798a0b662f9a, type: 3}
   m_Name: Default-Big
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  health: 30
+  health: 50
   moveSpeed: 2
   rewards: {fileID: 11400000, guid: accb0f02aff9d5d408c51abadd0e94b3, type: 2}
   prefab: {fileID: 3559181781810043068, guid: dbbf9afa318f30241a3bfb7a6fcc6391, type: 3}

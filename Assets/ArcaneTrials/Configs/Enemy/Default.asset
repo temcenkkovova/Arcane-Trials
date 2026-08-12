@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
   health: 30
-  moveSpeed: 2
+  moveSpeed: 3
   rewards: {fileID: 11400000, guid: c28342f2da707a5499f0e3537713b817, type: 2}
   prefab: {fileID: 3559181781810043068, guid: fb5dab225a7bea84881a165746b7e8a0, type: 3}
   weaponConfig: {fileID: 11400000, guid: 5b5163f9ac344b645871185aefcb0a37, type: 2}
