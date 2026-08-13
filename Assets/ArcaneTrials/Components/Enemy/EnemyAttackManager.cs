@@ -14,7 +14,7 @@ public class EnemyAttackManager : MonoBehaviour
     if (!attack.CanAttack()) return;
     attack.AttackAction();
     enemyAnimationsController.PlayAttackAnimation();
-    Debug.Log("Is attacking");
+
   }
 
   // I can add an bool state for checking is enemy attacking now , If it is attacking I can`t switch FSM state on chasing or idle

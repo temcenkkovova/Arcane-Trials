@@ -7,7 +7,7 @@ public class AttackState : IEnemyState
   private EnemyAnimationsController enemyAnimations;
   private EnemyTargetController enemyTarget;
   private EnemyBootstrap enemyBootstrap;
-  private float temporaryAttackRange = 3f;
+  private float temporaryAttackRange = 1.5f;
   private EnemyAttackManager attackManager;
   public void Enter()
   {
@@ -19,7 +19,7 @@ public class AttackState : IEnemyState
     Vector3 offset = enemyTarget.targetTr.position - enemyBootstrap.transform.position;
     offset.y = 0f;
     float distanceSqr = offset.sqrMagnitude;
-    if (distanceSqr >= temporaryAttackRange * temporaryAttackRange)
+    if (distanceSqr > temporaryAttackRange * temporaryAttackRange)
     {
       enemyFSM.SwitchState(enemyBootstrap.Chase);
       return;

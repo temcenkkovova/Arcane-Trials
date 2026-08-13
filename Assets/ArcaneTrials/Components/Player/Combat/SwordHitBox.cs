@@ -22,7 +22,7 @@ public class SwordHitBox : MonoBehaviour
     IDamageable damageable = other.GetComponent<IDamageable>();
     if (damageable == null) return;
     damageable.TakeDamage(damage);
-    Debug.Log("Hit");
+    Debug.Log("Hit" + other.name);
   }
 
   public void EnableSwordCollider()

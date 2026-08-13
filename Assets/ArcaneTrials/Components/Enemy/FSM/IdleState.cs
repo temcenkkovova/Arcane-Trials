@@ -6,7 +6,7 @@ public class IdleState : IEnemyState
   private EnemyBootstrap enemyBootstrap;
   public void Enter()
   {
-    enemyTarget.OnTargetClear += HandleSwitchChaseState;
+    enemyTarget.OnTarget += HandleSwitchChaseState;
     enemyAnimationsController.PlayIdleAnimation(true);
   }
   public void Update()
@@ -15,7 +15,7 @@ public class IdleState : IEnemyState
   }
   public void Exit()
   {
-    enemyTarget.OnTargetClear -= HandleSwitchChaseState;
+    enemyTarget.OnTarget -= HandleSwitchChaseState;
     enemyAnimationsController.PlayIdleAnimation(false);
   }
   public IdleState(EnemyFSMController enemyFSM, EnemyTargetController enemyTarget, EnemyAnimationsController enemyAnimationsController, EnemyBootstrap enemyBootstrap)

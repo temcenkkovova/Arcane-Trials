@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5572113128776570887}
   - component: {fileID: 360284769985118041}
   - component: {fileID: 43286937852026294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: handAttackPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a8e7888b5f6f92140bbbe2a287b6e50f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -247,7 +247,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

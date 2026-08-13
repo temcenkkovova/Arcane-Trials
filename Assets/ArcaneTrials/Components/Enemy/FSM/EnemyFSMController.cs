@@ -16,15 +16,15 @@ public class EnemyFSMController : MonoBehaviour
     enemyHealth = GetComponent<EnemyHealth>();
   }
 
-  void Start()
+  void OnEnable()
   {
-    //SwitchState(enemyBootstrap.Chase);
+
     if (enemyHealth == null) return;
     enemyHealth.OnDead += HandleDeadAction;
   }
   void Update()
   {
-    currentState.Update();
+    currentState?.Update();
   }
   public void SwitchState(IEnemyState newState)
   {

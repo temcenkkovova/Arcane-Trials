@@ -7,7 +7,7 @@ public class ChaseState : IEnemyState
   private EnemyAnimationsController enemyAnimationsController;
   private EnemyBootstrap enemyBootstrap;
   private EnemyMovement movement;
-  private float temporaryAttackRange = 3f;
+  private float temporaryAttackRange = 1.5f;
 
 
 
@@ -29,7 +29,6 @@ public class ChaseState : IEnemyState
       enemyFSM.SwitchState(enemyBootstrap.Attack);
       return;
     }
-    Debug.Log("Chase");
     Vector3 dir = offset.normalized;
     movement.SetDirection(dir);
   }
