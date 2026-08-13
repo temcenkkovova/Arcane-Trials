@@ -20,4 +20,7 @@
 *.pdb
 *.zip
 *.zip.meta
+/Assets/Plugins
+/Assets/Resources
+
 /Assets/ThirdParty

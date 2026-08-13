@@ -623,6 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnArena
   spawnArenaConfig: {fileID: 11400000, guid: ef789fafaccd33445b32c09f3a330c0b, type: 2}
   spawnAreaCollider: {fileID: 221609556}
+  playerTr: {fileID: 1544108398}
 --- !u!1 &323454333
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,8 +823,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51046443, y: 0, z: 0, w: 0.85989887}
-  m_LocalPosition: {x: 0, y: 11, z: -26.7}
+  m_LocalRotation: {x: 0.5257311, y: 0, z: 0, w: 0.85065085}
+  m_LocalPosition: {x: 0, y: 12, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1215,8 +1216,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580115825}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51046443, y: 0, z: 0, w: 0.85989887}
-  m_LocalPosition: {x: 0, y: 11, z: -26.7}
+  m_LocalRotation: {x: 0.5257311, y: 0, z: 0, w: 0.85065085}
+  m_LocalPosition: {x: 0, y: 12, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1253,7 +1254,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 11, z: -6}
+  FollowOffset: {x: 0, y: 12, z: -6}
 --- !u!1 &657718888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,6 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnArena
   spawnArenaConfig: {fileID: 11400000, guid: cad950ac0e231c44bbfb8788b54e9411, type: 2}
   spawnAreaCollider: {fileID: 1322963539}
+  playerTr: {fileID: 0}
 --- !u!4 &1333241220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3067801926766950695, guid: de2244d1c85677b40bf681b62db8c905, type: 3}
@@ -1847,7 +1849,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -20.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1253590667}

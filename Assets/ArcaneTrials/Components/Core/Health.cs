@@ -24,13 +24,18 @@ public class Health : MonoBehaviour, IDamageable
     {
       CurrentHealth = 0;
       OnHealthChanged?.Invoke(CurrentHealth);
-      isDead = true;
-      OnDead?.Invoke();
+      Die();
     }
     else
     {
       CurrentHealth = healthAfter;
       OnHealthChanged?.Invoke(CurrentHealth);
     }
+  }
+  protected virtual void Die()
+  {
+
+    OnDead?.Invoke();
+    isDead = true;
   }
 }

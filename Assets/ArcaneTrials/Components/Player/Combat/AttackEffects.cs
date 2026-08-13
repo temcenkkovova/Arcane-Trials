@@ -15,4 +15,5 @@ public class AttackEffects : MonoBehaviour
     SlashVFX slash = Instantiate(config.particle, vfxPosition.position, vfxPosition.rotation);
   }
 
+
 }
