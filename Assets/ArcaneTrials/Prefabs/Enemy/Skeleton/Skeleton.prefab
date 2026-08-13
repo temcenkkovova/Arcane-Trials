@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8268565201832917119}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 372c811ad98ca344ab5b4093dec7f958, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8e7888b5f6f92140bbbe2a287b6e50f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b837d0fa2588774fb5b22f45cebb039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFSMController
-  playerTarget: {fileID: 0}
 --- !u!114 &-3347479462739750981
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,8 +27,8 @@ public class EnemyBootstrap : MonoBehaviour
 
   void Start()
   {
-    chaseState = new ChaseState();
-    idleState = new IdleState(enemyFSM, enemyTargetController);
+    chaseState = new ChaseState(enemyFSM, enemyTargetController, enemyAnimations, this);
+    idleState = new IdleState(enemyFSM, enemyTargetController, enemyAnimations, this);
     deadState = new DeadState(movement, enemyFSM, enemyAnimations);
     enemyFSM.InitDefaultState(chaseState);
   }
