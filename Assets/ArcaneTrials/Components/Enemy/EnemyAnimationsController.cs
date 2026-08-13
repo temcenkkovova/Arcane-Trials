@@ -23,4 +23,8 @@ public class EnemyAnimationsController : MonoBehaviour
     Debug.Log("run an");
     animator.SetBool("Run", state);
   }
+  public void PlayAttackAnimation()
+  {
+    animator.SetTrigger("Attack");
+  }
 }

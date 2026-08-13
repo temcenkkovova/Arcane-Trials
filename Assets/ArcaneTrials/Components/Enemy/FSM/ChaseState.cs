@@ -6,6 +6,11 @@ public class ChaseState : IEnemyState
   private EnemyFSMController enemyFSM;
   private EnemyAnimationsController enemyAnimationsController;
   private EnemyBootstrap enemyBootstrap;
+  private EnemyMovement movement;
+  private float temporaryAttackRange = 3f;
+
+
+
   public void Enter()
   {
     enemyAnimationsController.PlayRunAnimation(true);
@@ -13,7 +18,20 @@ public class ChaseState : IEnemyState
   }
   public void Update()
   {
+
+    if (enemyTarget.targetTr == null) return;
+    Vector3 offset = enemyTarget.targetTr.position - enemyBootstrap.transform.position;
+    offset.y = 0f;
+    float distanceSqr = offset.sqrMagnitude;
+    if (distanceSqr <= temporaryAttackRange * temporaryAttackRange)
+    {
+      movement.StopMove();
+      enemyFSM.SwitchState(enemyBootstrap.Attack);
+      return;
+    }
     Debug.Log("Chase");
+    Vector3 dir = offset.normalized;
+    movement.SetDirection(dir);
   }
   public void Exit()
   {
@@ -21,12 +39,13 @@ public class ChaseState : IEnemyState
     enemyAnimationsController.PlayRunAnimation(false);
   }
 
-  public ChaseState(EnemyFSMController enemyFSM, EnemyTargetController enemyTarget, EnemyAnimationsController enemyAnimationsController, EnemyBootstrap enemyBootstrap)
+  public ChaseState(EnemyFSMController enemyFSM, EnemyTargetController enemyTarget, EnemyAnimationsController enemyAnimationsController, EnemyBootstrap enemyBootstrap, EnemyMovement movement)
   {
     this.enemyFSM = enemyFSM;
     this.enemyTarget = enemyTarget;
     this.enemyAnimationsController = enemyAnimationsController;
     this.enemyBootstrap = enemyBootstrap;
+    this.movement = movement;
   }
 
   public void HandleSwitchIdleState()

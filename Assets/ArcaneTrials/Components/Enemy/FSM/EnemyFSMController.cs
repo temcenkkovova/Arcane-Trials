@@ -18,7 +18,7 @@ public class EnemyFSMController : MonoBehaviour
 
   void Start()
   {
-    SwitchState(enemyBootstrap.Chase);
+    //SwitchState(enemyBootstrap.Chase);
     if (enemyHealth == null) return;
     enemyHealth.OnDead += HandleDeadAction;
   }
