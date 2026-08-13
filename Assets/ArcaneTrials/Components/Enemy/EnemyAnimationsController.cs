@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class EnemyAnimationsController : MonoBehaviour
 {
   private Animator animator;
+  public event Action OnFinishAttack;
+  public event Action OnStartAttack;
 
   void Awake()
   {

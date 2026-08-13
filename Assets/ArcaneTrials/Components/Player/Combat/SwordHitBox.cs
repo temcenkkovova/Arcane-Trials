@@ -4,6 +4,7 @@ public class SwordHitBox : MonoBehaviour
 {
   private float damage;
   public Collider swordCollider;
+  private Collider currentDamageableTarget;
 
 
   void Start()
@@ -19,9 +20,11 @@ public class SwordHitBox : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
+    if (currentDamageableTarget != null) return;
     IDamageable damageable = other.GetComponent<IDamageable>();
     if (damageable == null) return;
     damageable.TakeDamage(damage);
+    currentDamageableTarget = other;
     Debug.Log("Hit" + other.name);
   }
 
@@ -31,6 +34,7 @@ public class SwordHitBox : MonoBehaviour
   }
   public void DisableSwordCollider()
   {
+    currentDamageableTarget = null;
     swordCollider.enabled = false;
   }
 

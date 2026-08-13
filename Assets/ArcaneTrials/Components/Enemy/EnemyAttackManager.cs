@@ -8,6 +8,7 @@ public class EnemyAttackManager : MonoBehaviour
   {
     enemyAnimationsController = GetComponent<EnemyAnimationsController>();
     attack = GetComponent<Attack>();
+
   }
   public void ManageAttack()
   {
@@ -16,6 +17,26 @@ public class EnemyAttackManager : MonoBehaviour
     enemyAnimationsController.PlayAttackAnimation();
 
   }
+  public void HandleEnableHitBox()
+  {
+    attack.EnableHitbox();
+  }
+  public void HandleDisableHitBox()
+  {
+    attack.DisableHitbox();
+  }
 
+  void OnEnable()
+  {
+    if (enemyAnimationsController == null) return;
+    enemyAnimationsController.OnStartAttack += HandleEnableHitBox;
+    enemyAnimationsController.OnFinishAttack += HandleDisableHitBox;
+  }
+  void OnDisable()
+  {
+    if (enemyAnimationsController == null) return;
+    enemyAnimationsController.OnStartAttack -= HandleEnableHitBox;
+    enemyAnimationsController.OnFinishAttack -= HandleDisableHitBox;
+  }
   // I can add an bool state for checking is enemy attacking now , If it is attacking I can`t switch FSM state on chasing or idle
 }

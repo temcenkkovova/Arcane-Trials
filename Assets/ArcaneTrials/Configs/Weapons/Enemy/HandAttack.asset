@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HandAttack
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   damage: 5
-  speed: 2
+  speed: 3
   critChance: 0
   critMultiplier: 0
   weaponPrefab: {fileID: 0}

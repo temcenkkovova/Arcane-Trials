@@ -17,6 +17,7 @@ public class PlayerComponent : MonoBehaviour
   private PlayerDodge playerDodge;
   private PlayerAnimationsController playerAnimationsController;
   private PlayerAttackManager attackManager;
+  private PlayerHealth playerHealth;
 
 
   void Awake()
@@ -34,6 +35,7 @@ public class PlayerComponent : MonoBehaviour
     fsmController.InitState(Locomotion);
     playerMovement.Init(playerStats);
     playerRotation.Init(playerStats);
+    playerHealth.Init(playerStats.MaxHealth);
   }
 
 
@@ -47,6 +49,7 @@ public class PlayerComponent : MonoBehaviour
     playerDodge = GetComponent<PlayerDodge>();
     playerAnimationsController = GetComponent<PlayerAnimationsController>();
     attackManager = GetComponent<PlayerAttackManager>();
+    playerHealth = GetComponent<PlayerHealth>();
   }
 
 }
