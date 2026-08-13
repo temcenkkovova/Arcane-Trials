@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: -8630216426677040437}
   - component: {fileID: -2360116517541036310}
   - component: {fileID: 634095147450393605}
+  - component: {fileID: 682804930828767031}
+  - component: {fileID: 8727404826183435612}
   m_Layer: 3
   m_Name: Skeleton
   m_TagString: Untagged
@@ -293,6 +295,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWeaponController
   weaponConfig: {fileID: 11400000, guid: b1be1d78dd2411e4d9f1f9db9c47f94b, type: 2}
   currentSwordPrefab: {fileID: 1527770463402148864}
+--- !u!114 &682804930828767031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268565201832917119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a01c099b1ff78459de78f321ab708d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitFeedback
+  visual: {fileID: 271371305870691883}
+--- !u!114 &8727404826183435612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268565201832917119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96bf62ef219654c4094a50a3e81b6eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathFeedback
+  visual: {fileID: 271371305870691883}
 --- !u!1001 &310365463694895552
 PrefabInstance:
   m_ObjectHideFlags: 0

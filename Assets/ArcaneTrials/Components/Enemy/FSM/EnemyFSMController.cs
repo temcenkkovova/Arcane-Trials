@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Sirenix.OdinInspector;
 
 public class EnemyFSMController : MonoBehaviour
 {
-
+  [ShowInInspector, ReadOnly]
+  private string CurrentState => currentState?.GetType().Name ?? "None";
   private IEnemyState currentState;
   private EnemyBootstrap enemyBootstrap;
   private EnemyHealth enemyHealth;

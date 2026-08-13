@@ -25,7 +25,7 @@ public class SwordHitBox : MonoBehaviour
     if (damageable == null) return;
     damageable.TakeDamage(damage);
     currentDamageableTarget = other;
-    Debug.Log("Hit" + other.name);
+
   }
 
   public void EnableSwordCollider()

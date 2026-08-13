@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class SlashVFX : MonoBehaviour
@@ -7,6 +8,14 @@ public class SlashVFX : MonoBehaviour
 
   private void Start()
   {
-    Destroy(gameObject, lifeTime);
+    transform.localScale = Vector3.zero;
+
+    transform
+        .DOScale(1f, lifeTime)
+        .SetEase(Ease.OutQuad)
+        .OnComplete(() =>
+        {
+          Destroy(gameObject);
+        });
   }
 }

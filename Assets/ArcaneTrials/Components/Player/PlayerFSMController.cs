@@ -1,7 +1,10 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PlayerFSMController : MonoBehaviour
 {
+  [ShowInInspector, ReadOnly]
+  private string CurrentState => currentState?.GetType().Name ?? "None";
   private IPlayerState currentState;
   private PlayerInputController playerInputController;
   private PlayerComponent playerComponent;
