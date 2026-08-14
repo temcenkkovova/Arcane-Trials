@@ -9,13 +9,18 @@ public class EnemyFSMController : MonoBehaviour
   private IEnemyState currentState;
   private EnemyBootstrap enemyBootstrap;
   private EnemyHealth enemyHealth;
+  private EnemyMovement enemyMovement;
   public ChaseState chaseState { get; private set; }
   public DeadState deadState { get; private set; }
+
+
 
   void Awake()
   {
     enemyBootstrap = GetComponent<EnemyBootstrap>();
     enemyHealth = GetComponent<EnemyHealth>();
+    enemyMovement = GetComponent<EnemyMovement>();
+
   }
 
   void OnEnable()
@@ -23,6 +28,7 @@ public class EnemyFSMController : MonoBehaviour
 
     if (enemyHealth == null) return;
     enemyHealth.OnDead += HandleDeadAction;
+    GameStateController.Instance.OnGameStateChanged += HandleGameStateChange;
   }
   void Update()
   {
@@ -53,6 +59,7 @@ public class EnemyFSMController : MonoBehaviour
   {
     if (enemyHealth == null) return;
     enemyHealth.OnDead -= HandleDeadAction;
+    GameStateController.Instance.OnGameStateChanged -= HandleGameStateChange;
   }
 
   public void StartDestroyCoroutine()
@@ -63,5 +70,15 @@ public class EnemyFSMController : MonoBehaviour
   {
     yield return new WaitForSeconds(3f);
     Destroy(gameObject);
+  }
+
+  private void HandleGameStateChange(GameState state)
+  {
+    bool newState = state == GameState.Gameplay;
+
+    enabled = newState;
+
+
+
   }
 }

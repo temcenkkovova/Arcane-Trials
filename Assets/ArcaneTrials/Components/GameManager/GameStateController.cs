@@ -1,12 +1,14 @@
 using System;
-
+using Sirenix.OdinInspector;
 using UnityEngine;
 public enum GameState { Gameplay, Pause, Dialogue, ShowStats, GameOver }
 public class GameStateController : MonoBehaviour
 {
   [SerializeField] private GameState initialState = GameState.Gameplay;
+
   public static GameStateController Instance;
   public GameState CurrentState { get; private set; }
+  public string gameSt => CurrentState.GetType().Name;
 
   public event Action<GameState> OnGameStateChanged;
 

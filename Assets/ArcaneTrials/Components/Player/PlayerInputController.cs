@@ -49,6 +49,7 @@ public class PlayerInputController : MonoBehaviour
   }
   private void OnEnable()
   {
+    GameStateController.Instance.OnGameStateChanged += HandleGameStateChange;
     inputActions.Player.Enable();
     inputActions.Player.Sprint.started += OnSprintStarted;
     inputActions.Player.Sprint.canceled += OnSprintCanceled;
@@ -58,11 +59,20 @@ public class PlayerInputController : MonoBehaviour
 
   private void OnDisable()
   {
-
+    GameStateController.Instance.OnGameStateChanged -= HandleGameStateChange;
     inputActions.Player.Sprint.started -= OnSprintStarted;
     inputActions.Player.Sprint.canceled -= OnSprintCanceled;
     inputActions.Player.Roll.performed -= OnRollStarted;
     inputActions.Player.Attack.performed -= OnAttackStarted;
     inputActions.Player.Disable();
+  }
+  private void HandleGameStateChange(GameState state)
+  {
+
+    bool newState = state == GameState.Gameplay;
+
+    enabled = newState;
+
+
   }
 }

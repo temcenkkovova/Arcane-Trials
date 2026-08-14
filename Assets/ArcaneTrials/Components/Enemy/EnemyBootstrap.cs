@@ -14,17 +14,18 @@ public class EnemyBootstrap : MonoBehaviour
   private AttackState attackState;
   public AttackState Attack => attackState;
   private EnemyFSMController enemyFSM;
-  private EnemyTargetController enemyTargetController;
+  private EnemyTargetController enemyTarget;
   private EnemyMovement movement;
   private EnemyAnimationsController enemyAnimations;
   private EnemyAttackManager enemyAttackManager;
   private EnemyDeathFeedback enemyDeathFeedback;
 
+
   void Awake()
   {
     enemyHealth = GetComponent<EnemyHealth>();
     enemyFSM = GetComponent<EnemyFSMController>();
-    enemyTargetController = GetComponent<EnemyTargetController>();
+
     movement = GetComponent<EnemyMovement>();
     enemyAnimations = GetComponent<EnemyAnimationsController>();
     enemyAttackManager = GetComponent<EnemyAttackManager>();
@@ -33,19 +34,21 @@ public class EnemyBootstrap : MonoBehaviour
 
   void Start()
   {
-    chaseState = new ChaseState(enemyFSM, enemyTargetController, enemyAnimations, this, movement);
-    idleState = new IdleState(enemyFSM, enemyTargetController, enemyAnimations, this);
+    chaseState = new ChaseState(enemyFSM, enemyTarget, enemyAnimations, this, movement);
+    idleState = new IdleState(enemyFSM, enemyTarget, enemyAnimations, this);
     deadState = new DeadState(movement, enemyFSM, enemyAnimations, enemyDeathFeedback);
-    attackState = new AttackState(movement, enemyFSM, enemyAnimations, enemyTargetController, this, enemyAttackManager);
+    attackState = new AttackState(movement, enemyFSM, enemyAnimations, enemyTarget, this, enemyAttackManager);
     enemyFSM.InitDefaultState(chaseState);
     movement.Init(config);
   }
 
-  public void Init(EnemyConfig config)
+  public void Init(EnemyConfig config, EnemyTargetController enemyTarget)
   {
     this.config = config;
     enemyHealth.Init(config.health);
+    this.enemyTarget = enemyTarget;
   }
+
 }
 
 

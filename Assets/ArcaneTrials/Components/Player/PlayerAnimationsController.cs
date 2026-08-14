@@ -10,6 +10,8 @@ public class PlayerAnimationsController : MonoBehaviour
   public event Action OnFinishDodge;
   public event Action OnFinishAttack;
   public event Action OnStartAttack;
+  private bool canRoll;
+
 
   void Awake()
   {
@@ -19,16 +21,19 @@ public class PlayerAnimationsController : MonoBehaviour
     attackEffects = GetComponent<AttackEffects>();
   }
 
-  void Start()
+
+
+  private void OnEnable()
   {
     if (movement == null) return;
     movement.OnMoveDirectionChanged += HandleMoveChanged;
-  }
 
+  }
   private void OnDisable()
   {
     if (movement == null) return;
     movement.OnMoveDirectionChanged -= HandleMoveChanged;
+
   }
 
   public void HandleMoveChanged(Vector3 localDirection)
@@ -40,12 +45,14 @@ public class PlayerAnimationsController : MonoBehaviour
   }
   public void HandleStartDodge()
   {
+
     animator.SetTrigger("Roll");
   }
   public void HandleFinishDodge()
   {
 
     OnFinishDodge?.Invoke();
+
   }
   public void PlayAttackAnimation()
   {
@@ -71,4 +78,6 @@ public class PlayerAnimationsController : MonoBehaviour
   {
     animator.SetTrigger("Dead");
   }
+
+
 }

@@ -13,7 +13,11 @@ public class Health : MonoBehaviour, IDamageable
   public event Action OnDead;
   public HitFeedback hitFeedback;
 
-
+  [Button]
+  private void TestDamage()
+  {
+    TakeDamage(10);
+  }
 
 
   void Awake()

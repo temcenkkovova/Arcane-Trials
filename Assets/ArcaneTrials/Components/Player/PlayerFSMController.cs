@@ -19,11 +19,13 @@ public class PlayerFSMController : MonoBehaviour
   private void OnEnable()
   {
     playerInputController.OnAttack += HandleAttackAction;
+    GameStateController.Instance.OnGameStateChanged += HandleGameStateChange;
   }
 
   private void OnDisable()
   {
     playerInputController.OnAttack -= HandleAttackAction;
+    GameStateController.Instance.OnGameStateChanged -= HandleGameStateChange;
   }
 
 
@@ -56,6 +58,14 @@ public class PlayerFSMController : MonoBehaviour
       Debug.Log("You can`t attack now");
       return;
     }
+
+  }
+  private void HandleGameStateChange(GameState state)
+  {
+    bool newState = state == GameState.Gameplay;
+
+    enabled = newState;
+
 
   }
 }

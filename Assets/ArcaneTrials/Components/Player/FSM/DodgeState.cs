@@ -40,7 +40,7 @@ public class DodgeState : IPlayerState
 
   private void SwitchOnLocomotionState()
   {
-
+    Debug.Log("here");
     playerFSM.SwitchState(player.Locomotion);
   }
 }

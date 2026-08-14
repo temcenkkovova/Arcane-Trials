@@ -6,6 +6,7 @@ public class EnemySpawnArena : MonoBehaviour
   public SpawnArenaConfig spawnArenaConfig;
   public BoxCollider spawnAreaCollider;
   public Transform playerTr;
+  public EnemyTargetController enemyTargetController;
 
 
 
@@ -28,9 +29,9 @@ public class EnemySpawnArena : MonoBehaviour
   private void SpawnEnemy(EnemyConfig enemyConfig)
   {
     EnemyBootstrap enemy = Instantiate(enemyConfig.prefab, GetRandomPosition(enemyConfig.prefab.transform.position), transform.rotation);
-    EnemyTargetController enemyTargetController = enemy.GetComponent<EnemyTargetController>();
-    enemyTargetController.SetTarget(playerTr);
-    enemy.Init(enemyConfig);
+
+
+    enemy.Init(enemyConfig, enemyTargetController);
   }
   private Vector3 GetRandomPosition(Vector3 vector)
   {

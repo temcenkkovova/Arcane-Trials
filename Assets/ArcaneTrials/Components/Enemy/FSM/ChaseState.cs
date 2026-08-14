@@ -36,6 +36,7 @@ public class ChaseState : IEnemyState
   {
     enemyTarget.OnTargetClear -= HandleSwitchIdleState;
     enemyAnimationsController.PlayRunAnimation(false);
+    movement.StopMove();
   }
 
   public ChaseState(EnemyFSMController enemyFSM, EnemyTargetController enemyTarget, EnemyAnimationsController enemyAnimationsController, EnemyBootstrap enemyBootstrap, EnemyMovement movement)

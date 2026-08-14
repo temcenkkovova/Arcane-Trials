@@ -838,6 +838,7 @@ MonoBehaviour:
   spawnArenaConfig: {fileID: 11400000, guid: ef789fafaccd33445b32c09f3a330c0b, type: 2}
   spawnAreaCollider: {fileID: 221609556}
   playerTr: {fileID: 1544108398}
+  enemyTargetController: {fileID: 541067728}
 --- !u!1 &323454333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541067727}
   - component: {fileID: 541067726}
+  - component: {fileID: 541067728}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -1450,6 +1452,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541067728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541067725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c3ef49135a7b142804262f704f4447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyTargetController
+  playerHealth: {fileID: 1544108413}
 --- !u!1 &580115825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,6 +2202,7 @@ MonoBehaviour:
   spawnArenaConfig: {fileID: 11400000, guid: cad950ac0e231c44bbfb8788b54e9411, type: 2}
   spawnAreaCollider: {fileID: 1322963539}
   playerTr: {fileID: 0}
+  enemyTargetController: {fileID: 0}
 --- !u!4 &1333241220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3067801926766950695, guid: de2244d1c85677b40bf681b62db8c905, type: 3}
