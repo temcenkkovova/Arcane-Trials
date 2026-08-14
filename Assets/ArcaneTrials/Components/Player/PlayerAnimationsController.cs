@@ -67,4 +67,8 @@ public class PlayerAnimationsController : MonoBehaviour
   {
     attackEffects.PlayAttackEffect();
   }
+  public void PlayDeadAnimation()
+  {
+    animator.SetTrigger("Dead");
+  }
 }

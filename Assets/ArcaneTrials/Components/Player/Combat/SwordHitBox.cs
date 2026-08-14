@@ -20,6 +20,7 @@ public class SwordHitBox : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
+    Debug.Log(other.name);
     if (currentDamageableTarget != null) return;
     IDamageable damageable = other.GetComponent<IDamageable>();
     if (damageable == null) return;

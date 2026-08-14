@@ -11,14 +11,10 @@ public class Health : MonoBehaviour, IDamageable
   public event Action<float> OnHealthChanged;
   private bool isDead;
   public event Action OnDead;
-  private HitFeedback hitFeedback;
+  public HitFeedback hitFeedback;
 
 
-  [Button]
-  private void TestDamage()
-  {
-    TakeDamage(10);
-  }
+
 
   void Awake()
   {
@@ -44,6 +40,7 @@ public class Health : MonoBehaviour, IDamageable
     }
     else
     {
+
       CurrentHealth = healthAfter;
       hitFeedback.PlayHit();
       OnHealthChanged?.Invoke(CurrentHealth);
@@ -51,8 +48,7 @@ public class Health : MonoBehaviour, IDamageable
   }
   protected virtual void Die()
   {
-
-    OnDead?.Invoke();
     isDead = true;
+    OnDead?.Invoke();
   }
 }
