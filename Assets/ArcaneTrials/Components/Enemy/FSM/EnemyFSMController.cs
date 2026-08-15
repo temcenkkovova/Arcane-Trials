@@ -12,7 +12,7 @@ public class EnemyFSMController : MonoBehaviour
   private EnemyMovement enemyMovement;
   public ChaseState chaseState { get; private set; }
   public DeadState deadState { get; private set; }
-
+  private EnemyTargetController targetController;
 
 
   void Awake()
@@ -29,6 +29,7 @@ public class EnemyFSMController : MonoBehaviour
     if (enemyHealth == null) return;
     enemyHealth.OnDead += HandleDeadAction;
     GameStateController.Instance.OnGameStateChanged += HandleGameStateChange;
+
   }
   void Update()
   {
@@ -43,9 +44,11 @@ public class EnemyFSMController : MonoBehaviour
     currentState?.Enter();
   }
 
-  public void InitDefaultState(IEnemyState defaultState)
+  public void Init(IEnemyState defaultState, EnemyTargetController targetController)
   {
     SwitchState(defaultState);
+    this.targetController = targetController;
+    targetController.OnTargetClear += HandleClearTarget;
   }
 
 
@@ -60,6 +63,7 @@ public class EnemyFSMController : MonoBehaviour
     if (enemyHealth == null) return;
     enemyHealth.OnDead -= HandleDeadAction;
     GameStateController.Instance.OnGameStateChanged -= HandleGameStateChange;
+    targetController.OnTargetClear -= HandleClearTarget;
   }
 
   public void StartDestroyCoroutine()
@@ -71,7 +75,10 @@ public class EnemyFSMController : MonoBehaviour
     yield return new WaitForSeconds(3f);
     Destroy(gameObject);
   }
-
+  private void HandleClearTarget()
+  {
+    SwitchState(enemyBootstrap.Idle);
+  }
   private void HandleGameStateChange(GameState state)
   {
     bool newState = state == GameState.Gameplay;

@@ -9,7 +9,7 @@ public class ShowPlayerHealth : MonoBehaviour
   public PlayerHealth playerHealth;
 
 
-  void Awake()
+  void OnEnable()
   {
 
     playerHealth.OnHealthChanged += ShowHealth;

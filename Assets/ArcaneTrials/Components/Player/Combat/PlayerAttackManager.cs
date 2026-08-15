@@ -17,8 +17,7 @@ public class PlayerAttackManager : MonoBehaviour
 
   void Start()
   {
-    playerAnimationsController.OnStartAttack += attack.EnableHitbox;
-    playerAnimationsController.OnFinishAttack += attack.DisableHitbox;
+
   }
 
   public void ManageAttack()
@@ -33,6 +32,9 @@ public class PlayerAttackManager : MonoBehaviour
   void OnEnable()
   {
     IsAttacking = false;
+    if (attack && playerAnimationsController)
+      playerAnimationsController.OnStartAttack += attack.EnableHitbox;
+    playerAnimationsController.OnFinishAttack += attack.DisableHitbox;
   }
 
   void OnDisable()
