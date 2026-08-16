@@ -45,13 +45,13 @@ public class PlayerAudio : MonoBehaviour
   }
   private void PlayDamagedAudio(float value)
   {
-    Debug.Log(previousHealth);
+
     if (playerAudioConfig == null) return;
     if (previousHealth < playerHealth.CurrentHealth) return;
     var clip = playerAudioConfig.hitClips[Random.Range(0, playerAudioConfig.hitClips.Length)];
     float pitch = Random.Range(playerAudioConfig.pitchMin, playerAudioConfig.pitchMax);
     AudioService.Instance.PlayAt(transform.position, clip, playerAudioConfig.volume, pitch);
     previousHealth = playerHealth.CurrentHealth;
-    Debug.Log("Aduio pla");
+
   }
 }

@@ -9,6 +9,7 @@ public class Health : MonoBehaviour, IDamageable
   [ShowInInspector, ReadOnly]
   public float CurrentHealth { get; private set; }
   public event Action<float> OnHealthChanged;
+  public event Action<float> OnDamaged;
   private bool isDead;
   public event Action OnDead;
   public HitFeedback hitFeedback;
@@ -50,6 +51,7 @@ public class Health : MonoBehaviour, IDamageable
       hitFeedback.PlayHit();
       OnHealthChanged?.Invoke(CurrentHealth);
     }
+    OnDamaged?.Invoke(damage);
   }
   protected virtual void Die()
   {
