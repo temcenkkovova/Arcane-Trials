@@ -16,6 +16,8 @@ MonoBehaviour:
   speed: 1
   critChance: 0.05
   critMultiplier: 2
+  attackRadius: 1
+  attackHalfAngle: 45
   weaponPrefab: {fileID: 4038452383287798929, guid: f906758ade0c7cc4495db4665d4fe7c9, type: 3}
   level: 1
   weaponVFX: {fileID: 11400000, guid: 7340fe0fe613ecf498b8af896c2d95b8, type: 2}

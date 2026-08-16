@@ -6044,8 +6044,6 @@ MonoBehaviour:
   weaponConfig: {fileID: 11400000, guid: 5b5163f9ac344b645871185aefcb0a37, type: 2}
   weaponGrid: {fileID: 1776195413}
   currentSwordPrefab: {fileID: 692572908}
-  attackRadius: 1
-  attackHalfAngle: 45
 --- !u!114 &1544108409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6095,6 +6093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6fac34423e5074b9c7c9537d16181d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAudio
+  playerAudioConfig: {fileID: 11400000, guid: a49c8ab6579d34d478c11243de290550, type: 2}
 --- !u!114 &1544108413
 MonoBehaviour:
   m_ObjectHideFlags: 0

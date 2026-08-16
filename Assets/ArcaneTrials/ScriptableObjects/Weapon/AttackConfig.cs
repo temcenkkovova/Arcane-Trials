@@ -7,6 +7,8 @@ public class AttackConfig : ScriptableObject
 
   public float critChance;
   public float critMultiplier;
+  public float attackRadius;
+  public float attackHalfAngle;
 
 
 }

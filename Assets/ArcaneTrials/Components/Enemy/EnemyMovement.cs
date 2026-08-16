@@ -13,8 +13,8 @@ public class EnemyMovement : MonoBehaviour
   {
     rb = GetComponent<Rigidbody>();
 
-    // Столкновения больше не могут наклонять или раскручивать противника.
-    rb.constraints |= RigidbodyConstraints.FreezePositionY |
+
+    rb.constraints |= RigidbodyConstraints.FreezePositionY |  // I can do it from Unity inspector , but it dos not work
                       RigidbodyConstraints.FreezeRotationX |
                       RigidbodyConstraints.FreezeRotationZ;
     rb.angularVelocity = Vector3.zero;

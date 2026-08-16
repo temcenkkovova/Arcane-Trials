@@ -5,11 +5,6 @@ public class PlayerWeaponController : MonoBehaviour
   public WeaponConfig weaponConfig;
   public Transform weaponGrid;
   public GameObject currentSwordPrefab;
-
-  [Header("Area Attack")]
-  [SerializeField, Min(0.1f)] private float attackRadius = 2.5f;
-  [SerializeField, Range(0f, 180f)] private float attackHalfAngle = 45f;
-
   private Attack attack;
   private AttackEffects attackEffects;
   private PlayerAudio playerAudio;
@@ -28,7 +23,7 @@ public class PlayerWeaponController : MonoBehaviour
     WeaponStats = new WeaponStats(weaponConfig);
 
     SwordHitBox swordHitBox = currentSwordPrefab.GetComponent<SwordHitBox>();
-    swordHitBox.ConfigureAreaAttack(transform, attackRadius, attackHalfAngle);
+    swordHitBox.ConfigureAreaAttack(transform, weaponConfig.attackRadius, weaponConfig.attackHalfAngle);
 
     attack.Init(WeaponStats, swordHitBox);
     attackEffects.Init(weaponConfig.weaponVFX);
