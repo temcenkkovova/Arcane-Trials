@@ -7,12 +7,13 @@ public class EnemySpawnArena : MonoBehaviour
   public BoxCollider spawnAreaCollider;
   public Transform playerTr;
   public EnemyTargetController enemyTargetController;
-
+  public ArenaSealProgress arenaProgress;
 
 
   void Start()
   {
     SpawnEnemies();
+    arenaProgress.Init(spawnArenaConfig.MaxEnemies);
   }
 
 
@@ -31,7 +32,7 @@ public class EnemySpawnArena : MonoBehaviour
     EnemyBootstrap enemy = Instantiate(enemyConfig.prefab, GetRandomPosition(enemyConfig.prefab.transform.position), transform.rotation);
 
 
-    enemy.Init(enemyConfig, enemyTargetController);
+    enemy.Init(enemyConfig, enemyTargetController, arenaProgress);
   }
   private Vector3 GetRandomPosition(Vector3 vector)
   {

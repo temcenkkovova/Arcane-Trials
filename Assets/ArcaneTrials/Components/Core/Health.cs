@@ -26,6 +26,7 @@ public class Health : MonoBehaviour, IDamageable
   }
   public void Init(float maxHealth)
   {
+    isDead = false;
     MaxHealth = maxHealth;
     CurrentHealth = MaxHealth;
     OnHealthChanged?.Invoke(CurrentHealth);

@@ -6,4 +6,5 @@ public class SpawnArenaConfig : ScriptableObject
   public List<EnemyConfig> Enemies;
   public int MaxEnemies;
   public float RespawnTime;
+
 }

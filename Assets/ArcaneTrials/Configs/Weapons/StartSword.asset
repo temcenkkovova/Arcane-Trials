@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b21082a6fe0b004d8558b009d3d9989, type: 3}
   m_Name: StartSword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  damage: 20
+  damage: 10
   speed: 1
   critChance: 0.05
   critMultiplier: 2

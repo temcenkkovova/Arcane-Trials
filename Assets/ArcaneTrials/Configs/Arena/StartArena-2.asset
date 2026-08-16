@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f386449741856b4a9605bc9b3098ab9, type: 2}
   - {fileID: 11400000, guid: 2f386449741856b4a9605bc9b3098ab9, type: 2}
   - {fileID: 11400000, guid: 2f386449741856b4a9605bc9b3098ab9, type: 2}
-  MaxEnemies: 30
+  MaxEnemies: 24
   RespawnTime: 1

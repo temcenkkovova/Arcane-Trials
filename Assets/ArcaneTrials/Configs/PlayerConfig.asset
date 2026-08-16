@@ -15,6 +15,6 @@ MonoBehaviour:
   baseSpeed: 2
   baseSprintSpeed: 5
   baseSpeedRotation: 4
-  baseHealth: 50
+  baseHealth: 1000
   baseDamage: 15
   dashCooldawn: 2
