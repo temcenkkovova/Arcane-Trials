@@ -46,6 +46,7 @@ public class PlayerAnimationsController : MonoBehaviour
   public void HandleStartDodge()
   {
 
+
     animator.SetTrigger("Roll");
   }
   public void HandleFinishDodge()

@@ -10,6 +10,7 @@ public class DodgeState : IPlayerState
   private PlayerComponent player;
   private PlayerFSMController playerFSM;
 
+
   public DodgeState(PlayerMovement movement, PlayerDodge playerDodge, PlayerAnimationsController playerAnimations, PlayerFSMController playerFSM, PlayerComponent player)
   {
     this.movement = movement;
@@ -25,22 +26,25 @@ public class DodgeState : IPlayerState
   public void Enter()
   {
     playerAnimations.OnFinishDodge += SwitchOnLocomotionState;
+    playerDodge.OnFinishDash += SwitchOnLocomotionState;
     dodgeDirection = movement.CurrentMoveDirection;
 
     if (dodgeDirection.sqrMagnitude < 0.01f)
       dodgeDirection = movement.transform.forward;
 
     dodgeDirection.Normalize();
+
     playerAnimations.HandleStartDodge();
   }
   public void Exit()
   {
-    playerAnimations.OnFinishDodge -= SwitchOnLocomotionState;
+
+    playerDodge.OnFinishDash -= SwitchOnLocomotionState;
   }
 
   private void SwitchOnLocomotionState()
   {
-    Debug.Log("here");
+
     playerFSM.SwitchState(player.Locomotion);
   }
 }

@@ -10,6 +10,7 @@ public class PlayerFSMController : MonoBehaviour
   private PlayerComponent playerComponent;
   private PlayerAttackManager playerAttackManager;
 
+
   void Awake()
   {
     playerInputController = GetComponent<PlayerInputController>();
@@ -55,7 +56,7 @@ public class PlayerFSMController : MonoBehaviour
     }
     else
     {
-      Debug.Log("You can`t attack now");
+      // Debug.Log("You can`t attack now");
       return;
     }
 

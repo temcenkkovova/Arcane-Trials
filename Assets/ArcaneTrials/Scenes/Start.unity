@@ -1499,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.07454638}
   m_AnchorMax: {x: 0.41228595, y: 1}
-  m_AnchoredPosition: {x: 26.7, y: 0}
+  m_AnchoredPosition: {x: 26.700027, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203827157
@@ -6054,7 +6054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea43d16a7ffecac4b95e308a5a89dd04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDodge
-  dodgeSpeed: 10
+  dodgeSpeed: 15
 --- !u!95 &1544108407
 Animator:
   serializedVersion: 7

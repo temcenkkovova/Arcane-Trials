@@ -7,16 +7,18 @@ public class LocomotionState : IPlayerState
   private PlayerRotation playerRotation;
   private PlayerInputController playerInput;
   private PlayerFSMController playerFSM;
+  private PlayerDodge playerDodge;
 
   private PlayerComponent player;
 
-  public LocomotionState(PlayerMovement movement, PlayerInputController playerInput, PlayerRotation playerRotation, PlayerFSMController playerFSM, PlayerComponent player)
+  public LocomotionState(PlayerMovement movement, PlayerInputController playerInput, PlayerRotation playerRotation, PlayerFSMController playerFSM, PlayerComponent player, PlayerDodge playerDodge)
   {
     this.movement = movement;
     this.playerInput = playerInput;
     this.playerRotation = playerRotation;
     this.playerFSM = playerFSM;
     this.player = player;
+    this.playerDodge = playerDodge;
 
   }
   public void Enter()
@@ -36,8 +38,8 @@ public class LocomotionState : IPlayerState
 
   public void SwitchOnDodgeState()
   {
-
-    playerFSM.SwitchState(player.Dodge);
+    if (playerDodge.CanDash)
+      playerFSM.SwitchState(player.Dodge);
 
   }
 }

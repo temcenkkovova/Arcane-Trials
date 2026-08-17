@@ -29,7 +29,7 @@ public class PlayerComponent : MonoBehaviour
   {
     if (playerConfig == null) return;
     playerStats = new PlayerStats(playerConfig);
-    locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation, fsmController, this);
+    locomotionState = new LocomotionState(playerMovement, playerInputController, playerRotation, fsmController, this, playerDodge);
     dodgeState = new DodgeState(playerMovement, playerDodge, playerAnimationsController, fsmController, this);
     combatState = new CombatState(playerAnimationsController, fsmController, this, playerInputController, attackManager);
     fsmController.InitState(Locomotion);
