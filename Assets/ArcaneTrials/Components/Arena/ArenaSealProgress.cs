@@ -1,4 +1,6 @@
+
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ArenaSealProgress : MonoBehaviour
@@ -9,17 +11,28 @@ public class ArenaSealProgress : MonoBehaviour
   private bool isBossSpawn = false;
   public event Action OnCompletedProgress;
 
-  public void Init(float amount)
+
+  [Button]
+  private void TestKillProgress()
   {
-    requiredKills = amount;
+    AddKillToProgress();
+  }
+
+  public void Init(SpawnArenaConfig arenaConfig)
+  {
+    requiredKills = arenaConfig.MaxEnemies;
+
   }
 
   public void AddKillToProgress()
   {
     if (isBossSpawn) return;
-    Debug.Log("Arena Seal count changed");
+
     currentKillsAmount++;
     OnCurrentKillsChanged?.Invoke(currentKillsAmount);
+
+
+
     if (currentKillsAmount == requiredKills)
       SpawnBoss();
   }
@@ -28,6 +41,6 @@ public class ArenaSealProgress : MonoBehaviour
   {
     isBossSpawn = true;
     OnCompletedProgress?.Invoke();
-    Debug.Log("Call boss");
+
   }
 }

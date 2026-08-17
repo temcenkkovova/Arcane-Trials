@@ -7,17 +7,20 @@ public class EnemySpawnArena : MonoBehaviour
   public BoxCollider spawnAreaCollider;
   public Transform playerTr;
   public EnemyTargetController enemyTargetController;
-  public ArenaSealProgress arenaProgress;
+  private ArenaSealProgress arenaProgress;
+  private ArenaAudio arenaAudio;
 
-
+  void Awake()
+  {
+    arenaAudio = GetComponent<ArenaAudio>();
+    arenaProgress = GetComponent<ArenaSealProgress>();
+  }
   void Start()
   {
     SpawnEnemies();
-    arenaProgress.Init(spawnArenaConfig.MaxEnemies);
+    arenaProgress.Init(spawnArenaConfig);
+    arenaAudio.Init(spawnArenaConfig.bossConfig);
   }
-
-
-
   private void SpawnEnemies()
   {
     if (spawnArenaConfig.Enemies == null) return;

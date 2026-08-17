@@ -1663,6 +1663,7 @@ GameObject:
   - component: {fileID: 221609556}
   - component: {fileID: 221609558}
   - component: {fileID: 221609559}
+  - component: {fileID: 221609560}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -1726,7 +1727,6 @@ MonoBehaviour:
   spawnAreaCollider: {fileID: 221609556}
   playerTr: {fileID: 1544108398}
   enemyTargetController: {fileID: 541067728}
-  arenaProgress: {fileID: 221609559}
 --- !u!114 &221609559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1740,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArenaSealProgress
   requiredKills: 0
+--- !u!114 &221609560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221609555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ad4fd84a5ac624f99b9082c1728f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArenaAudio
+  volume: 1
+  pitchMin: 1
+  pitchMax: 1.5
 --- !u!1 &232648383
 GameObject:
   m_ObjectHideFlags: 0

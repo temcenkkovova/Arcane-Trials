@@ -7,6 +7,7 @@ public class ArenaSealProgressUI : MonoBehaviour
   public Image emptyRingImage;
   public Image fillRingImage;
 
+
   void OnEnable()
   {
     if (arenaSealProgress == null) return;
@@ -20,6 +21,7 @@ public class ArenaSealProgressUI : MonoBehaviour
 
   private void ChangeProgress(float kills)
   {
+
     float percentage = kills / arenaSealProgress.requiredKills;
     fillRingImage.fillAmount = percentage;
   }

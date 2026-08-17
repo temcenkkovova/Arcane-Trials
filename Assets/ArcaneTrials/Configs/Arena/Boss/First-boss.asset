@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151f381da2a7d1f46bb19da797d33eb7, type: 3}
+  m_Name: First-boss
+  m_EditorClassIdentifier: Assembly-CSharp::ArenaBossConfig
+  bossPrefab: {fileID: 5831782170261590920, guid: 516d3c536e2af5f48ab63bd2c043fb0b, type: 3}
+  bossIcon: {fileID: 21300000, guid: 4fccc5e7a2e316d43bf5dbc670f06f73, type: 3}
+  bossAudio: {fileID: 8300000, guid: 6706eb45e113f8441a0e7bd6f05e7190, type: 3}
+  segmentAudio: {fileID: 8300000, guid: da787ad7b2fa9b745a7b41c50f8fd9ba, type: 3}
