@@ -5,7 +5,9 @@ public class EnemyMovement : MonoBehaviour
   private Vector3 moveDirection;
   private Rigidbody rb;
   private EnemyConfig enemyConfig;
-  private float rotateSpeed = 5f;
+  private EnemyTargetController target;
+
+  [SerializeField] private float rotateSpeed = 360f;
 
   public float CurrentEnemySpeedPercent { get; private set; }
 
@@ -13,17 +15,21 @@ public class EnemyMovement : MonoBehaviour
   {
     rb = GetComponent<Rigidbody>();
 
+    rb.constraints |=
+        RigidbodyConstraints.FreezePositionY |
+        RigidbodyConstraints.FreezeRotationX |
+        RigidbodyConstraints.FreezeRotationZ;
 
-    rb.constraints |= RigidbodyConstraints.FreezePositionY |  // I can do it from Unity inspector , but it dos not work
-                      RigidbodyConstraints.FreezeRotationX |
-                      RigidbodyConstraints.FreezeRotationZ;
     rb.angularVelocity = Vector3.zero;
   }
 
-  public void Init(EnemyConfig enemyConfig)
+  public void Init(EnemyConfig enemyConfig, EnemyTargetController target)
   {
     this.enemyConfig = enemyConfig;
+    this.target = target;
   }
+
+
 
   public void StopMove()
   {
@@ -41,21 +47,43 @@ public class EnemyMovement : MonoBehaviour
 
   private void FixedUpdate()
   {
-    if (enemyConfig == null) return;
+    if (enemyConfig == null)
+      return;
 
+    Move();
+    RotateTowardsTarget();
+  }
+
+  private void Move()
+  {
     Vector3 velocity = moveDirection * enemyConfig.moveSpeed;
     velocity.y = 0f;
+
     rb.linearVelocity = velocity;
-    rb.angularVelocity = Vector3.zero;
 
-    CurrentEnemySpeedPercent = moveDirection.sqrMagnitude > 0.01f ? 1f : 0f;
-    if (moveDirection.sqrMagnitude < 0.01f) return;
+    CurrentEnemySpeedPercent =
+        moveDirection.sqrMagnitude > 0.01f ? 1f : 0f;
+  }
 
-    Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-    Quaternion newRotation = Quaternion.Slerp(
-      rb.rotation,
-      targetRotation,
-      rotateSpeed * Time.fixedDeltaTime);
+  private void RotateTowardsTarget()
+  {
+    if (target == null)
+      return;
+
+    Vector3 lookDirection = target.targetTr.position - rb.position;
+    lookDirection.y = 0f;
+
+
+    if (lookDirection.sqrMagnitude < 0.001f)
+      return;
+
+    Quaternion targetRotation =
+        Quaternion.LookRotation(lookDirection.normalized, Vector3.up);
+
+    Quaternion newRotation = Quaternion.RotateTowards(
+        rb.rotation,
+        targetRotation,
+        rotateSpeed * Time.fixedDeltaTime);
 
     rb.MoveRotation(newRotation);
   }

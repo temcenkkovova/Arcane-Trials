@@ -4,6 +4,7 @@ public class EnemyAttackManager : MonoBehaviour
 {
   private EnemyAnimationsController enemyAnimationsController;
   private Attack attack;
+  public bool isAttacking;
   void Awake()
   {
     enemyAnimationsController = GetComponent<EnemyAnimationsController>();
@@ -13,27 +14,32 @@ public class EnemyAttackManager : MonoBehaviour
   public void ManageAttack()
   {
     if (!attack.CanAttack()) return;
+    isAttacking = true;
     attack.AttackAction();
     enemyAnimationsController.PlayAttackAnimation();
 
   }
   public void HandleEnableHitBox()
   {
+
     attack.EnableHitbox();
   }
   public void HandleDisableHitBox()
   {
+    isAttacking = false;
     attack.DisableHitbox();
   }
 
   void OnEnable()
   {
+    isAttacking = false;
     if (enemyAnimationsController == null) return;
     enemyAnimationsController.OnStartAttack += HandleEnableHitBox;
     enemyAnimationsController.OnFinishAttack += HandleDisableHitBox;
   }
   void OnDisable()
   {
+
     if (enemyAnimationsController == null) return;
     enemyAnimationsController.OnStartAttack -= HandleEnableHitBox;
     enemyAnimationsController.OnFinishAttack -= HandleDisableHitBox;
