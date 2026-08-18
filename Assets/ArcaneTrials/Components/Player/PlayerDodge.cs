@@ -1,44 +1,44 @@
 using System;
-using System.Collections;
 using UnityEngine;
-
 public class PlayerDodge : MonoBehaviour
 {
   private CharacterController characterController;
-  public float dodgeSpeed = 10f;
+  [SerializeField] private float dodgeSpeed = 12f;
+  [SerializeField] private float dashDuration = 0.2f;
+  [SerializeField] private float dashCooldown = 2f;
+  private Vector3 dashDirection;
+  private float dashTimeRemaining;
+  private float cooldownTimeRemaining;
+  private bool isDashing;
   public event Action OnFinishDash;
-
-  private float dashCooldawn = 2f;
-  public bool CanDash;
-
-  void OnEnable()
-  {
-    CanDash = true;
-  }
+  public bool CanDash => !isDashing && cooldownTimeRemaining <= 0f;
   void Awake()
   {
     characterController = GetComponent<CharacterController>();
-
   }
 
-
-  public void Dodge(Vector3 direction)
+  void OnEnable()
   {
-    CanDash = false;
-    characterController.Move(direction * dodgeSpeed * Time.deltaTime);
-
-    StartCoroutine(dashCoroutine());
-    StartCoroutine(dashCooldawnCoroutine());
+    isDashing = false;
+    dashTimeRemaining = 0f;
+    cooldownTimeRemaining = 0f;
   }
-
-  private IEnumerator dashCoroutine()
+  void Update()
   {
-    yield return new WaitForSeconds(0.3f);
+    if (cooldownTimeRemaining > 0f) cooldownTimeRemaining -= Time.deltaTime;
+    if (!isDashing || characterController == null) return;
+    characterController.Move(dashDirection * dodgeSpeed * Time.deltaTime);
+    dashTimeRemaining -= Time.deltaTime;
+    if (dashTimeRemaining > 0f) return;
+    isDashing = false;
     OnFinishDash?.Invoke();
   }
-  private IEnumerator dashCooldawnCoroutine()
+  public void StartDodge(Vector3 direction)
   {
-    yield return new WaitForSeconds(dashCooldawn);
-    CanDash = true;
+    if (!CanDash) return;
+    dashDirection = direction.sqrMagnitude > 0.01f ? direction.normalized : transform.forward;
+    dashTimeRemaining = dashDuration;
+    cooldownTimeRemaining = dashCooldown;
+    isDashing = true;
   }
 }

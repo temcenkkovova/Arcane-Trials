@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a1af34fbf2c4e469129b6fcdf49049, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfig
-  baseSpeed: 2
+  baseSpeed: 4
   baseSprintSpeed: 5
   baseSpeedRotation: 4
   baseHealth: 1000

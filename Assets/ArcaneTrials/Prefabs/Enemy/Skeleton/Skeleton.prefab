@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051c5a69466cb924ab4ffd5806da3b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  rotateSpeed: 360
 --- !u!54 &2098505041739207679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -257,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8889b61f9fe80bb468f07a202b8ff33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackManager
+  isAttacking: 0
 --- !u!114 &-2360116517541036310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +359,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8466698465027105032, guid: 372c811ad98ca344ab5b4093dec7f958, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c864212a6e07f045b1b9d0eae728479, type: 2}
+    - target: {fileID: -8466698465027105032, guid: 372c811ad98ca344ab5b4093dec7f958, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c864212a6e07f045b1b9d0eae728479, type: 2}
     - target: {fileID: -8191740002585371210, guid: 372c811ad98ca344ab5b4093dec7f958, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000000026077032

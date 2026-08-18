@@ -19,6 +19,7 @@ public class EnemyConfig : ScriptableObject
   public EnemyBootstrap prefab;
   [BoxGroup("Weapon")]
   public WeaponConfig weaponConfig;
+  public EnemyAudioConfig enemyAudioConfig;
 
 
 

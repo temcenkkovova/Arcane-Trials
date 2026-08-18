@@ -15,5 +15,6 @@ MonoBehaviour:
   health: 50
   moveSpeed: 2
   rewards: {fileID: 11400000, guid: accb0f02aff9d5d408c51abadd0e94b3, type: 2}
-  prefab: {fileID: 3559181781810043068, guid: dbbf9afa318f30241a3bfb7a6fcc6391, type: 3}
+  prefab: {fileID: 4172380028158981349, guid: f81d00d895817e641ba8b515db1b0099, type: 3}
   weaponConfig: {fileID: 11400000, guid: 5b5163f9ac344b645871185aefcb0a37, type: 2}
+  enemyAudioConfig: {fileID: 0}

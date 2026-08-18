@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawnArena : MonoBehaviour
 {
   public SpawnArenaConfig spawnArenaConfig;
-  public BoxCollider spawnAreaCollider;
+  public Collider spawnAreaCollider;
   public Transform playerTr;
   public EnemyTargetController enemyTargetController;
   private ArenaSealProgress arenaProgress;
