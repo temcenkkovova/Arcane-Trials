@@ -28,6 +28,7 @@ public class EnemySpawnArena : MonoBehaviour
     {
       SpawnEnemy(item);
     }
+    SpawnBoss(spawnArenaConfig.bossConfig);
   }
 
   private void SpawnEnemy(EnemyConfig enemyConfig)
@@ -45,5 +46,12 @@ public class EnemySpawnArena : MonoBehaviour
          vector.y,
          Random.Range(bounds.min.z, bounds.max.z)
      );
+  }
+
+  private void SpawnBoss(ArenaBossConfig bossConfig)
+  {
+    BossBootstrap boss = Instantiate(bossConfig.bossPrefab, bossConfig.spawnPos, bossConfig.spawnBossRotation);
+    Debug.Log(Quaternion.identity);
+    boss.Init(enemyTargetController, arenaProgress);
   }
 }

@@ -1943,8 +1943,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6655440338949492132}
   - component: {fileID: 3352588182146039721}
-  - component: {fileID: 6825834738464380872}
-  - component: {fileID: 4172380028158981349}
   - component: {fileID: 651050168059262675}
   - component: {fileID: 3308410619029135913}
   - component: {fileID: 2913782614288345577}
@@ -1953,9 +1951,10 @@ GameObject:
   - component: {fileID: 8583848499546394063}
   - component: {fileID: -5309638004691336529}
   - component: {fileID: 7638009315731490701}
-  - component: {fileID: 1333889785324233017}
   - component: {fileID: 4902730859588622598}
   - component: {fileID: -8151810513482983310}
+  - component: {fileID: 6644402951978242728}
+  - component: {fileID: 6859588808771911575}
   m_Layer: 3
   m_Name: Warrok
   m_TagString: Untagged
@@ -2001,30 +2000,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6825834738464380872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945904634264727058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b133aab322dea4ea0a700e34ea8452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBoss
---- !u!114 &4172380028158981349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945904634264727058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be287e44e767a064abb8ba9d28684129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBootstrap
 --- !u!114 &651050168059262675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,18 +2118,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &1333889785324233017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945904634264727058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b837d0fa2588774fb5b22f45cebb039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFSMController
 --- !u!114 &4902730859588622598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2190,6 +2153,30 @@ CapsuleCollider:
   m_Height: 2.3578088
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6644402951978242728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945904634264727058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b133aab322dea4ea0a700e34ea8452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossBootstrap
+--- !u!114 &6859588808771911575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945904634264727058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4516ff53a41ec4f909c1abb7401207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossFSMController
 --- !u!1 &5966985084190882200
 GameObject:
   m_ObjectHideFlags: 0

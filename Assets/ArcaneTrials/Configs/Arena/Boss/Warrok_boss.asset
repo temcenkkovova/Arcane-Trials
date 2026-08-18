@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 151f381da2a7d1f46bb19da797d33eb7, type: 3}
-  m_Name: First-boss
+  m_Name: Warrok_boss
   m_EditorClassIdentifier: Assembly-CSharp::ArenaBossConfig
-  bossPrefab: {fileID: 5831782170261590920, guid: 516d3c536e2af5f48ab63bd2c043fb0b, type: 3}
+  bossPrefab: {fileID: 6644402951978242728, guid: f81d00d895817e641ba8b515db1b0099, type: 3}
   bossIcon: {fileID: 21300000, guid: 4fccc5e7a2e316d43bf5dbc670f06f73, type: 3}
   bossAudio: {fileID: 8300000, guid: 6706eb45e113f8441a0e7bd6f05e7190, type: 3}
   segmentAudio: {fileID: 8300000, guid: da787ad7b2fa9b745a7b41c50f8fd9ba, type: 3}
+  spawnPos: {x: 2.57, y: 1.15, z: 22.71}
+  spawnBossRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
