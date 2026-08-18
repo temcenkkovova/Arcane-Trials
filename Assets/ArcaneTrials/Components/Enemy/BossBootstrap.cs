@@ -3,7 +3,7 @@ using UnityEngine;
 public class BossBootstrap : MonoBehaviour
 {
 
-  private BossFSMController bossFSMController;
+  private BossFSMController bossFSM;
   private DeadState deadState;
   public DeadState Dead => deadState;
   private IdleState idleState;
@@ -13,6 +13,7 @@ public class BossBootstrap : MonoBehaviour
   public DormantState Dormant => dormantState;
   private EnemyTargetController enemyTarget;
   private ArenaSealProgress arenaSealProgress;
+
   public void Init(EnemyTargetController enemyTarget, ArenaSealProgress arenaSealProgress)
   {
     this.enemyTarget = enemyTarget;
@@ -21,13 +22,14 @@ public class BossBootstrap : MonoBehaviour
 
   void Awake()
   {
-    bossFSMController = GetComponent<BossFSMController>();
+    bossFSM = GetComponent<BossFSMController>();
+    dormantState = new DormantState(arenaSealProgress, bossFSM);
   }
 
   void Start()
   {
-    if (bossFSMController == null) return;
-    bossFSMController.Init(Dormant, enemyTarget);
+    if (bossFSM == null) return;
+    bossFSM.Init(Dormant, enemyTarget);
   }
 
 

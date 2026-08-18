@@ -12,6 +12,7 @@ public class BossFSMController : MonoBehaviour
   private EnemyMovement enemyMovement;
   public ChaseState chaseState { get; private set; }
   public DeadState deadState { get; private set; }
+  public EntranceState entranceState { get; private set; }
   private EnemyTargetController targetController;
 
 
