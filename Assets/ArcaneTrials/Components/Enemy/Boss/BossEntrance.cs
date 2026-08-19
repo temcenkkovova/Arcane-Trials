@@ -95,13 +95,15 @@ public class BossEntrance : MonoBehaviour
       position.y += 4f * jumpHeight * progress * (1f - progress);
       rb.MovePosition(position);
     }
-
+    targetPosition.y = 0f;
     rb.position = targetPosition;
     IsJumping = false;
     IsArrivedOnPosition = true;
     OnPosition?.Invoke();
     if (bossCollider != null)
       bossCollider.isTrigger = false;
+    rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+    rb.isKinematic = false;
 
 
   }

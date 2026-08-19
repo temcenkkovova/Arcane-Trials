@@ -15,12 +15,15 @@ public class BossBootstrap : MonoBehaviour
   public EntranceState Entrance => entranceState;
   private BossChaseState chaseState;
   public BossChaseState Chase => chaseState;
+  private BossAttackState attackState;
+  public BossAttackState Attack => attackState;
   private EnemyTargetController enemyTarget;
   private ArenaSealProgress arenaSealProgress;
   private BossEntrance bossEntrance;
   private ArenaBossConfig bossConfig;
   private EnemyMovement movement;
   private EnemyAnimationsController enemyAnimationsController;
+  private BossAttackManager bossAttackManager;
 
   public void Init(EnemyTargetController enemyTarget, ArenaSealProgress arenaSealProgress, ArenaBossConfig bossConfig)
   {
@@ -35,6 +38,7 @@ public class BossBootstrap : MonoBehaviour
     bossEntrance = GetComponent<BossEntrance>();
     movement = GetComponent<EnemyMovement>();
     enemyAnimationsController = GetComponent<EnemyAnimationsController>();
+    bossAttackManager = GetComponent<BossAttackManager>();
 
 
   }
@@ -44,10 +48,12 @@ public class BossBootstrap : MonoBehaviour
     if (bossFSM == null) return;
     dormantState = new DormantState(arenaSealProgress, bossFSM);
     entranceState = new EntranceState(bossFSM, bossEntrance, movement, enemyAnimationsController);
-    chaseState = new BossChaseState();
+    chaseState = new BossChaseState(bossFSM, enemyTarget, enemyAnimationsController, this, movement);
+    attackState = new BossAttackState(bossAttackManager, bossFSM, this, enemyTarget);
     bossFSM.Init(Dormant, enemyTarget, Chase, Entrance);
     bossEntrance.Init(bossConfig.bossEntrancePosition);
     movement.Init(bossConfig.moveSpeed, enemyTarget);
+    bossAttackManager.Init(bossConfig.attackConfig);
   }
 
 

@@ -1956,6 +1956,7 @@ GameObject:
   - component: {fileID: 6644402951978242728}
   - component: {fileID: 6859588808771911575}
   - component: {fileID: 3923044197027402615}
+  - component: {fileID: -6262308598177233287}
   m_Layer: 3
   m_Name: Warrok
   m_TagString: Untagged
@@ -2153,7 +2154,7 @@ CapsuleCollider:
   m_Radius: 0.7705518
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: -0.044294953, y: 0.9, z: 0}
+  m_Center: {x: -0.044294953, y: 1.02, z: 0}
 --- !u!114 &6644402951978242728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,6 +2194,19 @@ MonoBehaviour:
   jumpDistance: 2
   jumpHeight: 1
   jumpDuration: 2
+--- !u!114 &-6262308598177233287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945904634264727058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c517046d4347ef4ebb7f76747d4f9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackManager
+  bossAttackAreaPrefab: {fileID: -4262044801574094491, guid: 91a4be24152f2d44ab3f908995be2007, type: 3}
 --- !u!1 &5966985084190882200
 GameObject:
   m_ObjectHideFlags: 0

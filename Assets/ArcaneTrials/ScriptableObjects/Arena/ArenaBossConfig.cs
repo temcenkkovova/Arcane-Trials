@@ -18,4 +18,5 @@ public class ArenaBossConfig : ScriptableObject
 
 
   public RewardsConfig rewards;
+  public BossAttackConfig attackConfig;
 }

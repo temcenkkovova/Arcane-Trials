@@ -10,9 +10,6 @@ public class ChaseState : IEnemyState
   private float temporaryAttackRange = 1.5f;
 
 
-
-
-
   public void Enter()
   {
     enemyAnimationsController.PlayRunAnimation(true);
@@ -27,7 +24,7 @@ public class ChaseState : IEnemyState
     float distanceSqr = offset.sqrMagnitude;
     if (distanceSqr <= temporaryAttackRange * temporaryAttackRange)
     {
-      movement.StopMove();
+      // movement.StopMove();
       enemyFSM.SwitchState(enemyBootstrap.Attack);
       return;
     }

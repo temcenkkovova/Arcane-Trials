@@ -42,4 +42,10 @@ public class EnemyAnimationsController : MonoBehaviour
   {
     OnFinishJump?.Invoke();
   }
+
+  public void HandleFinishAttack()
+  {
+    Debug.Log("ah");
+    OnFinishAttack?.Invoke();
+  }
 }

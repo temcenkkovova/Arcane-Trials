@@ -13,6 +13,7 @@ public class EnemyBootstrap : MonoBehaviour
   public DeadState Dead => deadState;
   private AttackState attackState;
   public AttackState Attack => attackState;
+
   private EnemyFSMController enemyFSM;
   private EnemyTargetController enemyTarget;
   private EnemyMovement movement;
