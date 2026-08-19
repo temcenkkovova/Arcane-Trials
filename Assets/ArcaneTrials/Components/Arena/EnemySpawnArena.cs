@@ -52,6 +52,6 @@ public class EnemySpawnArena : MonoBehaviour
   {
     BossBootstrap boss = Instantiate(bossConfig.bossPrefab, bossConfig.spawnPos, bossConfig.spawnBossRotation);
     Debug.Log(Quaternion.identity);
-    boss.Init(enemyTargetController, arenaProgress);
+    boss.Init(enemyTargetController, arenaProgress, bossConfig);
   }
 }

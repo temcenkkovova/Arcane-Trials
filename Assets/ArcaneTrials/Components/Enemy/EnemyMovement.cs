@@ -4,7 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
   private Vector3 moveDirection;
   private Rigidbody rb;
-  private EnemyConfig enemyConfig;
+  private float moveSpeed;
   private EnemyTargetController target;
 
   [SerializeField] private float rotateSpeed = 360f;
@@ -23,9 +23,9 @@ public class EnemyMovement : MonoBehaviour
     rb.angularVelocity = Vector3.zero;
   }
 
-  public void Init(EnemyConfig enemyConfig, EnemyTargetController target)
+  public void Init(float moveSpeed, EnemyTargetController target)
   {
-    this.enemyConfig = enemyConfig;
+    this.moveSpeed = moveSpeed;
     this.target = target;
   }
 
@@ -41,13 +41,14 @@ public class EnemyMovement : MonoBehaviour
 
   public void SetDirection(Vector3 direction)
   {
+
     direction.y = 0f;
     moveDirection = direction.normalized;
   }
 
   private void FixedUpdate()
   {
-    if (enemyConfig == null)
+    if (moveSpeed <= 0)
       return;
 
     Move();
@@ -56,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
 
   private void Move()
   {
-    Vector3 velocity = moveDirection * enemyConfig.moveSpeed;
+    Vector3 velocity = moveDirection * moveSpeed;
     velocity.y = 0f;
 
     rb.linearVelocity = velocity;
@@ -67,18 +68,11 @@ public class EnemyMovement : MonoBehaviour
 
   private void RotateTowardsTarget()
   {
-    if (target == null)
-      return;
-
-    Vector3 lookDirection = target.targetTr.position - rb.position;
-    lookDirection.y = 0f;
-
-
-    if (lookDirection.sqrMagnitude < 0.001f)
+    if (moveDirection.sqrMagnitude < 0.001f)
       return;
 
     Quaternion targetRotation =
-        Quaternion.LookRotation(lookDirection.normalized, Vector3.up);
+        Quaternion.LookRotation(moveDirection, Vector3.up);
 
     Quaternion newRotation = Quaternion.RotateTowards(
         rb.rotation,

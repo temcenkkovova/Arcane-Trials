@@ -7,6 +7,8 @@ public class EnemyAnimationsController : MonoBehaviour
   public event Action OnFinishAttack;
   public event Action OnStartAttack;
 
+  public event Action OnFinishJump;
+
   void Awake()
   {
     animator = GetComponent<Animator>();
@@ -29,5 +31,15 @@ public class EnemyAnimationsController : MonoBehaviour
   public void PlayAttackAnimation()
   {
     animator.SetTrigger("Attack");
+  }
+
+  public void PlayJumpAnimation()
+  {
+    animator.SetTrigger("Jump");
+  }
+
+  public void HandleFinishJump()
+  {
+    OnFinishJump?.Invoke();
   }
 }

@@ -11,6 +11,8 @@ public class ChaseState : IEnemyState
 
 
 
+
+
   public void Enter()
   {
     enemyAnimationsController.PlayRunAnimation(true);
@@ -46,6 +48,7 @@ public class ChaseState : IEnemyState
     this.enemyAnimationsController = enemyAnimationsController;
     this.enemyBootstrap = enemyBootstrap;
     this.movement = movement;
+
   }
 
   public void HandleSwitchIdleState()

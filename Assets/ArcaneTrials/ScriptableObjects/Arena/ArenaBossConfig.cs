@@ -10,4 +10,12 @@ public class ArenaBossConfig : ScriptableObject
   public AudioClip segmentAudio;
   public Vector3 spawnPos;
   public Quaternion spawnBossRotation;
+  public Vector3 bossEntrancePosition;
+
+  public float health;
+
+  public float moveSpeed;
+
+
+  public RewardsConfig rewards;
 }

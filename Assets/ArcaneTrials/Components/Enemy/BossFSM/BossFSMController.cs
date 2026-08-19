@@ -10,7 +10,7 @@ public class BossFSMController : MonoBehaviour
   private BossBootstrap enemyBootstrap;
   private EnemyHealth enemyHealth;
   private EnemyMovement enemyMovement;
-  public ChaseState chaseState { get; private set; }
+  public BossChaseState chaseState { get; private set; }
   public DeadState deadState { get; private set; }
   public EntranceState entranceState { get; private set; }
   private EnemyTargetController targetController;
@@ -45,11 +45,13 @@ public class BossFSMController : MonoBehaviour
     currentState?.Enter();
   }
 
-  public void Init(IEnemyState defaultState, EnemyTargetController targetController)
+  public void Init(IEnemyState defaultState, EnemyTargetController targetController, BossChaseState chaseSt, EntranceState entranceState)
   {
     SwitchState(defaultState);
     this.targetController = targetController;
     targetController.OnTargetClear += HandleClearTarget;
+    chaseState = chaseSt;
+    this.entranceState = entranceState;
   }
 
 

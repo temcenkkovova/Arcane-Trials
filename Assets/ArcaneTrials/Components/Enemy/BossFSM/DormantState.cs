@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class DormantState : IEnemyState
 {
   private ArenaSealProgress sealProgress;
@@ -9,6 +11,7 @@ public class DormantState : IEnemyState
 
   public void Enter()
   {
+
     sealProgress.OnCompletedProgress += HandleCompletedSeal;
   }
   public void Exit()

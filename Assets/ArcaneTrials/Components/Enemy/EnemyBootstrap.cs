@@ -40,7 +40,7 @@ public class EnemyBootstrap : MonoBehaviour
     deadState = new DeadState(movement, enemyFSM, enemyAnimations, enemyDeathFeedback);
     attackState = new AttackState(movement, enemyFSM, enemyAnimations, enemyTarget, this, enemyAttackManager);
     enemyFSM.Init(chaseState, enemyTarget);
-    movement.Init(config, enemyTarget);
+    movement.Init(config.moveSpeed, enemyTarget);
   }
 
   public void Init(EnemyConfig config, EnemyTargetController enemyTarget, ArenaSealProgress arenaProgress)
