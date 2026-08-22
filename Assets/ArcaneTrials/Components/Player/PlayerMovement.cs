@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
   {
     if (characterController == null || playerStats == null) return;
     Vector3 direction = new Vector3(input.x, 0f, input.y);
+
     if (direction.sqrMagnitude > 0.01f) direction.Normalize();
+
     CurrentMoveDirection = direction;
     CurrentInverseTransformDirection = transform.InverseTransformDirection(direction);
     OnMoveDirectionChanged?.Invoke(CurrentInverseTransformDirection);

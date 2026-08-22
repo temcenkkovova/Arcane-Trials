@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4b1cc05b38c1d4db40798a0b662f9a, type: 3}
-  m_Name: Default
+  m_Name: Vampires
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  health: 30
-  moveSpeed: 3
-  rewards: {fileID: 11400000, guid: c28342f2da707a5499f0e3537713b817, type: 2}
-  prefab: {fileID: -3497091947744152984, guid: 33924891168e20e478e5d7cc70b0d7b7, type: 3}
+  health: 100
+  moveSpeed: 2
+  rewards: {fileID: 11400000, guid: accb0f02aff9d5d408c51abadd0e94b3, type: 2}
+  prefab: {fileID: -3497091947744152984, guid: 1a7e1f476978cf5449ac4dc0eac0c0f0, type: 3}
   weaponConfig: {fileID: 11400000, guid: 5b5163f9ac344b645871185aefcb0a37, type: 2}
+  enemyAudioConfig: {fileID: 0}

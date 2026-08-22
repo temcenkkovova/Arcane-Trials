@@ -28,6 +28,7 @@ public class PlayerWeaponController : MonoBehaviour
     attack.Init(WeaponStats, swordHitBox);
     attackEffects.Init(weaponConfig.weaponVFX);
     playerAudio.InitWeaponConfig(weaponConfig.weaponVFX);
+    swordHitBox.DisableSwordCollider();
   }
 
   private void ChangeWeaponVisual()

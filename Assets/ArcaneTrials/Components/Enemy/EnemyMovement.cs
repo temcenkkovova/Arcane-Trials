@@ -48,8 +48,14 @@ public class EnemyMovement : MonoBehaviour
 
   private void FixedUpdate()
   {
+
     if (moveSpeed <= 0)
+    {
+      moveDirection.y = 0f;
+      rb.linearVelocity = moveDirection;
       return;
+    }
+
 
     Move();
     RotateTowardsTarget();

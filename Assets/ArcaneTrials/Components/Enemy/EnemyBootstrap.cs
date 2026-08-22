@@ -21,7 +21,8 @@ public class EnemyBootstrap : MonoBehaviour
   private EnemyAttackManager enemyAttackManager;
   private EnemyDeathFeedback enemyDeathFeedback;
   private ArenaSealProgress arenaProgress;
-
+  private EnemyEntryState enemyEntry;
+  private EnemySpawnArena enemySpawnArena;
 
   void Awake()
   {
@@ -44,14 +45,14 @@ public class EnemyBootstrap : MonoBehaviour
     movement.Init(config.moveSpeed, enemyTarget);
   }
 
-  public void Init(EnemyConfig config, EnemyTargetController enemyTarget, ArenaSealProgress arenaProgress)
+  public void Init(EnemyConfig config, EnemyTargetController enemyTarget, ArenaSealProgress arenaProgress, EnemyEntryState enemyEntry, EnemySpawnArena enemySpawnArena)
   {
     this.config = config;
     enemyHealth.Init(config.health);
     this.enemyTarget = enemyTarget;
     this.arenaProgress = arenaProgress;
-
-
+    this.enemyEntry = enemyEntry;
+    this.enemySpawnArena = enemySpawnArena;
     enemyHealth.OnDead += HandleEnemyDeath;
   }
 
@@ -59,6 +60,8 @@ public class EnemyBootstrap : MonoBehaviour
   {
     if (arenaProgress == null) return;
     arenaProgress.AddKillToProgress();
+    enemyEntry.RegisterDeath();
+    enemySpawnArena.HandleEnemyDeath();
   }
   void OnDisable()
   {

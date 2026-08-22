@@ -8,7 +8,7 @@ public class ArenaSealProgress : MonoBehaviour
   public float requiredKills;
   private float currentKillsAmount;
   public event Action<float> OnCurrentKillsChanged;
-  private bool isBossSpawn = false;
+  public bool isBossSpawn { get; private set; } = false;
   public event Action OnCompletedProgress;
 
 

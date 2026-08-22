@@ -21,5 +21,6 @@ public class EnemyWeaponController : MonoBehaviour
     WeaponStats = new WeaponStats(weaponConfig);
     SwordHitBox swordHitBox = currentSwordPrefab.GetComponent<SwordHitBox>();
     attack.Init(WeaponStats, swordHitBox);
+    swordHitBox.DisableSwordCollider();
   }
 }

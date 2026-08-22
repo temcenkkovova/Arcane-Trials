@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: StartArena
   m_EditorClassIdentifier: Assembly-CSharp::SpawnArenaConfig
   Enemies:
-  - {fileID: 11400000, guid: 27b650d177bf5c24f9308f4df093a727, type: 2}
+  - {fileID: 11400000, guid: a119612e22f16c345b8103124ffb5db9, type: 2}
+  - {fileID: 11400000, guid: e99d828e9f5dfda42906eecec59681bf, type: 2}
+  - {fileID: 11400000, guid: 9f4d1dec9820fc940b5f6f76bcad3462, type: 2}
   MaxEnemies: 24
   RespawnTime: 1
   bossConfig: {fileID: 11400000, guid: 0509e2c18c698634cb5ae64bafa24d98, type: 2}

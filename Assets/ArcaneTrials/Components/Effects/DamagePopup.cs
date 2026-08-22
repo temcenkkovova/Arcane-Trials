@@ -7,8 +7,9 @@ public class DamagePopup : MonoBehaviour
   [SerializeField] private TMP_Text damageText;
   [SerializeField] private CanvasGroup canvasGroup;
 
-  public void Show(float damage)
+  public void Show(float damage, Color color)
   {
+    damageText.color = color;
     damageText.text = $"-{Mathf.RoundToInt(damage)}";
 
     transform.DOKill();

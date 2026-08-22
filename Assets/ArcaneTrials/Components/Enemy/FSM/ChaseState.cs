@@ -7,7 +7,7 @@ public class ChaseState : IEnemyState
   private EnemyAnimationsController enemyAnimationsController;
   private EnemyBootstrap enemyBootstrap;
   private EnemyMovement movement;
-  private float temporaryAttackRange = 1.5f;
+  private float temporaryAttackRange = 1f;
 
 
   public void Enter()

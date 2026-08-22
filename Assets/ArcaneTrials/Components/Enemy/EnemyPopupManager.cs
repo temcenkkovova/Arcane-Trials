@@ -1,27 +1,27 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class PlayerPopupManager : MonoBehaviour
+public class EnemyPopupManager : MonoBehaviour
 {
   public DamagePopup damagePopupPrefab;
-  private PlayerHealth playerHealth;
+  private EnemyHealth enemyHealth;
 
   public Transform popupPos;
+
   [ColorPalette]
   public Color ColorOptions;
   public Color color;
-
   void Awake()
   {
-    playerHealth = GetComponent<PlayerHealth>();
+    enemyHealth = GetComponent<EnemyHealth>();
 
-    if (playerHealth == null) return;
-    playerHealth.OnDamaged += HandleShowPopup;
+    if (enemyHealth == null) return;
+    enemyHealth.OnDamaged += HandleShowPopup;
   }
   void OnDisable()
   {
-    if (playerHealth == null) return;
-    playerHealth.OnDamaged -= HandleShowPopup;
+    if (enemyHealth == null) return;
+    enemyHealth.OnDamaged -= HandleShowPopup;
 
   }
 

@@ -7,7 +7,7 @@ public class AttackState : IEnemyState
   private EnemyAnimationsController enemyAnimations;
   private EnemyTargetController enemyTarget;
   private EnemyBootstrap enemyBootstrap;
-  private float temporaryAttackRange = 1.5f;
+  private float temporaryAttackRange = 1f;
   private EnemyAttackManager attackManager;
   public void Enter()
   {

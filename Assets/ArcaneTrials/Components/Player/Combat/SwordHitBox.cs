@@ -11,15 +11,18 @@ public class SwordHitBox : MonoBehaviour
   private float areaRadius;
   private float attackHalfAngle;
   private bool useAreaAttack;
+  private string owner;
 
   private void Start()
   {
-    DisableSwordCollider();
+    // DisableSwordCollider();
   }
 
-  public void SetDamage(float newDamage)
+  public void SetDamage(float newDamage, string owner)
   {
+
     damage = newDamage;
+    this.owner = owner;
   }
 
   public void ConfigureAreaAttack(Transform origin, float radius, float halfAngle)
@@ -33,6 +36,8 @@ public class SwordHitBox : MonoBehaviour
   private void OnTriggerEnter(Collider other)
   {
     if (useAreaAttack) return;
+    Debug.Log("Other tag" + other.tag + "owner Tag" + owner);
+    if (other.tag == owner) return;
     TryDamage(other);
   }
 

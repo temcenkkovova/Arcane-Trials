@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4b1cc05b38c1d4db40798a0b662f9a, type: 3}
+  m_Name: Demons
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
+  health: 50
+  moveSpeed: 2
+  rewards: {fileID: 11400000, guid: accb0f02aff9d5d408c51abadd0e94b3, type: 2}
+  prefab: {fileID: -3497091947744152984, guid: 1a7e1f476978cf5449ac4dc0eac0c0f0, type: 3}
+  weaponConfig: {fileID: 11400000, guid: 5b5163f9ac344b645871185aefcb0a37, type: 2}
+  enemyAudioConfig: {fileID: 0}

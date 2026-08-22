@@ -31,8 +31,8 @@ public class Attack : MonoBehaviour
       Debug.Log("WeaponStats is messing");
       return;
     }
-
-    swordHitBox.SetDamage(weaponStats.Damage);
+    Debug.Log(gameObject.tag);
+    swordHitBox.SetDamage(weaponStats.Damage, gameObject.tag);
   }
 
   public void SetNewHitBox(SwordHitBox newHitBox)
